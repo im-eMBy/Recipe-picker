@@ -1,0 +1,26 @@
+.switch-button {
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #FFC2C2;
+    transition-duration: 0.3s;
+    position: relative;
+    .switch-button__circle {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        background-color: #F5F5F5;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        transition-duration: 0.3s;
+        &--active {
+            left: 34px;
+        }
+    }
+    &--active {
+        background-color: #D1E2CA;
+    }
+}
