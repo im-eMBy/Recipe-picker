@@ -12,12 +12,12 @@ import wheatIcon from "../images/icons/wheat.png";
 import eggsIcon from "../images/icons/eggs.png";
 import dairyIcon from "../images/icons/dairy.png";
 import fishIcon from "../images/icons/salmon.png";
-import crustceansIcon from "../images/icons/crustceans.png";
+import crustaceansIcon from "../images/icons/crustaceans.png";
 
 export const AllergiesSelection = () => {
    const { isVegan, allergies } = useSelector((state) => state.query);
    const dispatch = useDispatch();
-   const { setAllergyPeanuts, setAllergyTreenuts, setAllergyWheat, setAllergySoy, setAllergyDairy, setAllergyEggs, setAllergyFish, setAllergyCrustceans } = bindActionCreators(actionCreators, dispatch);
+   const { setAllergyPeanuts, setAllergyTreenuts, setAllergyWheat, setAllergySoy, setAllergyDairy, setAllergyEggs, setAllergyFish, setAllergyCrustaceans } = bindActionCreators(actionCreators, dispatch);
 
    const getFirstRow = () => {
       return <>
@@ -83,11 +83,11 @@ export const AllergiesSelection = () => {
                </div>
             </button>
             <button
-               onClick={() => setAllergyCrustceans(!allergies.crustceans)}
-               className={allergies.crustceans ? "allergy-selection__allergy-button allergy-selection__allergy-button--active" : "allergy-selection__allergy-button"}>
-               <span>{allergies.crustceans ? "No crustceans" : "Crustceans"}</span>
+               onClick={() => setAllergyCrustaceans(!allergies.crustaceans)}
+               className={allergies.crustaceans ? "allergy-selection__allergy-button allergy-selection__allergy-button--active" : "allergy-selection__allergy-button"}>
+               <span>{allergies.crustaceans ? "No crustaceans" : "Crustaceans"}</span>
                <div className="icon-container">
-                  <img src={crustceansIcon} alt="" />
+                  <img src={crustaceansIcon} alt="" />
                </div>
             </button>
          </> : null}

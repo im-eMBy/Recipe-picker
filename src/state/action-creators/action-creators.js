@@ -1,3 +1,16 @@
+//key words
+
+export const setKeyWords = (text) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setKeyWords',
+            text: text
+        })
+    }
+}
+
+//is vegan
+
 export const setIsVegan = (isVegan) => {
     return (dispatch) => {
         dispatch({
@@ -6,6 +19,9 @@ export const setIsVegan = (isVegan) => {
         })
     }
 }
+
+//superpowers
+
 export const setIsHighProtein = (isHighProtein) => {
     return (dispatch) => {
         dispatch({
@@ -30,6 +46,9 @@ export const setIsHighFiber = (isHighFiber) => {
         })
     }
 }
+
+//allergies
+
 export const setAllergyPeanuts = (isAllergy) => {
     return (dispatch) => {
         dispatch({
@@ -86,11 +105,12 @@ export const setAllergyFish = (isAllergy) => {
         })
     }
 }
-export const setAllergyCrustceans = (isAllergy) => {
+export const setAllergyCrustaceans = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyCrustceans',
+            type: 'setAllergyCrustaceans',
             isAllergy: isAllergy
         })
     }
 }
+

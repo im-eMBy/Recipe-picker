@@ -14,7 +14,7 @@ const initialState = {
         dairy: false,
         eggs: false,
         fish: false,
-        crustceans: false
+        crustaceans: false
     }
 }
 
@@ -23,6 +23,8 @@ export const queryReducer = (
     action
 ) => {
     switch (action.type) {
+        case "setKeyWords":
+            return {...state, keyWords: action.text}
         case "setIsVegan":
             return { ...state, isVegan: action.isVegan }
         case "setIsHighProtein":
@@ -45,8 +47,8 @@ export const queryReducer = (
             return { ...state, allergies: { ...state.allergies, eggs: action.isAllergy } }
         case "setAllergyFish":
             return { ...state, allergies: { ...state.allergies, fish: action.isAllergy } }
-        case "setAllergyCrustceans":
-            return { ...state, allergies: { ...state.allergies, crustceans: action.isAllergy } }
+        case "setAllergyCrustaceans":
+            return { ...state, allergies: { ...state.allergies, crustaceans: action.isAllergy } }
         default:
             return state
     }
