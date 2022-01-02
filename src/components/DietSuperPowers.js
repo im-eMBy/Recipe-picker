@@ -4,12 +4,14 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { SwitchButton } from './SwitchButton';
 
+import "../scss/_diet-superpowers.scss";
+
 import proteinIcon from '../images/icons/protein.png';
 import sugarFreeIcon from '../images/icons/sugar-free.png';
 import fiberIcon from '../images/icons/fiber.png';
 
 export const DietSuperPowers = () => {
-    const { isHighProtein, isNoSugar, isHighFiber} = useSelector((state) => state.dietInfo.superpowers);
+    const { isHighProtein, isNoSugar, isHighFiber} = useSelector((state) => state.query.superpowers);
     const dispatch = useDispatch();
     const { setIsHighProtein, setIsNoSugar, setIsHighFiber } = bindActionCreators(actionCreators, dispatch);
 

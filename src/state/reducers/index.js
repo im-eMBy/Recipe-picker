@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { dietInfoReducer } from "./dietInfoReducer";
+import { queryReducer } from "./queryReducer";
 
 export const reducers = combineReducers(
     {
-        dietInfo: dietInfoReducer
+        query: queryReducer
     }
 )

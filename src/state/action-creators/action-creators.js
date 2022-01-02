@@ -30,3 +30,67 @@ export const setIsHighFiber = (isHighFiber) => {
         })
     }
 }
+export const setAllergyPeanuts = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyPeanuts',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergyTreenuts = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyTreenuts',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergyWheat = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyWheat',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergySoy = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergySoy',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergyDairy = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyDairy',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergyEggs = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyEggs',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergyFish = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyFish',
+            isAllergy: isAllergy
+        })
+    }
+}
+export const setAllergyCrustceans = (isAllergy) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setAllergyCrustceans',
+            isAllergy: isAllergy
+        })
+    }
+}

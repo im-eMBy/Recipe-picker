@@ -5,12 +5,14 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
+import "../scss/_is-vegan-selection.scss";
+
 import vegetarianIcon from '../images/icons/vegetarian.png';
 import veganIcon from '../images/icons/vegan.png';
 import pescatarianIcon from '../images/icons/fish.png'
 
 export const IsVeganSelection = () => {
-    const { isVegan } = useSelector((state) => state.dietInfo);
+    const { isVegan } = useSelector((state) => state.query);
     const dispatch = useDispatch();
     const { setIsVegan } = bindActionCreators(actionCreators, dispatch);
 
