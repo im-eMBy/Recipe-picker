@@ -1,3 +1,16 @@
+//for appReducer
+
+export const setResponseData = (data) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setResponseData',
+            data: data
+        })
+    }
+}
+
+//for queryReducer
+
 //key words
 
 export const setKeyWords = (text) => {
@@ -110,6 +123,41 @@ export const setAllergyCrustaceans = (isAllergy) => {
         dispatch({
             type: 'setAllergyCrustaceans',
             isAllergy: isAllergy
+        })
+    }
+}
+
+//clinical diets
+
+export const setClinicalCardiovascular = (isClinical) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setClinicalCardiovascular',
+            isClinical: isClinical
+        })
+    }
+}
+export const setClinicalMetabolic = (isClinical) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setClinicalMetabolic',
+            isClinical: isClinical
+        })
+    }
+}
+export const setClinicalDigestive = (isClinical) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setClinicalDigestive',
+            isClinical: isClinical
+        })
+    }
+}
+export const setClinicalKidney = (isClinical) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'setClinicalKidney',
+            isClinical: isClinical
         })
     }
 }

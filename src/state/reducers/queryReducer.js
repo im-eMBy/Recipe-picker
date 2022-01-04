@@ -15,6 +15,12 @@ const initialState = {
         eggs: false,
         fish: false,
         crustaceans: false
+    },
+    clinical: {
+        cardiovascular: false,
+        metabolic: false,
+        kidney: false,
+        digestive: false
     }
 }
 
@@ -24,7 +30,7 @@ export const queryReducer = (
 ) => {
     switch (action.type) {
         case "setKeyWords":
-            return {...state, keyWords: action.text}
+            return { ...state, keyWords: action.text }
         case "setIsVegan":
             return { ...state, isVegan: action.isVegan }
         case "setIsHighProtein":
@@ -49,6 +55,14 @@ export const queryReducer = (
             return { ...state, allergies: { ...state.allergies, fish: action.isAllergy } }
         case "setAllergyCrustaceans":
             return { ...state, allergies: { ...state.allergies, crustaceans: action.isAllergy } }
+        case "setClinicalCardiovascular":
+            return { ...state, clinical: { ...state.clinical, cardiovascular: action.isClinical } }
+        case "setClinicalMetabolic":
+            return { ...state, clinical: { ...state.clinical, metabolic: action.isClinical } }
+        case "setClinicalDigestive":
+            return { ...state, clinical: { ...state.clinical, digestive: action.isClinical } }
+        case "setClinicalKidney":
+            return { ...state, clinical: { ...state.clinical, kidney: action.isClinical } }
         default:
             return state
     }
