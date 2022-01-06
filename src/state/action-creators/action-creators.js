@@ -1,9 +1,9 @@
 //for appReducer
 
-export const setResponseData = (data) => {
+export const setRecipes = (data) => {
     return (dispatch) => {
         dispatch({
-            type: 'setResponseData',
+            type: 'setRecipes',
             data: data
         })
     }

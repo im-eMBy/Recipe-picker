@@ -1,4 +1,6 @@
-const API_URL = 'https://api.edamam.com/api/recipes/v2?type=public&random=true&dishType=Main%20course';
+const API_URL = 'https://api.edamam.com/api/recipes/v2?type=public&random=false';
+
+const maxCalorieCall = '&nutrients%5BENERC_KCAL%5D=0-1000';
 
 const appIdCall = `&app_id=${process.env.REACT_APP_API_ID}`;
 const apiKeyCall = `&app_key=${process.env.REACT_APP_API_KEY}`;

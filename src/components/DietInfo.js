@@ -15,19 +15,17 @@ import { apiGetRecipies } from "../api/api-request";
 
 export const DietInfo = () => {
     const dispatch = useDispatch();
-    const { setResponseData } = bindActionCreators(actionCreators, dispatch);
+    const { setRecipes } = bindActionCreators(actionCreators, dispatch);
     const queryState = useSelector((state) => state.query);
-    const { responseData } = useSelector((state) => state.app);
-
+    const { recipes } = useSelector((state) => state.app);
 
     return <div className="diet-info">
         <IsVeganSelection />
-        {/* <DietSuperPowers/> */}
         <ClinicalDiets />
         <AllergiesSelection />
         <KeyWordsInput />
-        <button style={{ backgroundColor: "green" }} onClick={() => { apiGetRecipies(generateURL(queryState), setResponseData) }}>Test</button>
+        <button style={{ backgroundColor: "green" }} onClick={() => { apiGetRecipies(generateURL(queryState), setRecipes) }}>Test</button>
         <p>{generateURL(queryState)}</p>
-        {responseData !== null ? <RecipesList /> : null}
+        {recipes !== null ? <RecipesList /> : null}
     </div>
 }

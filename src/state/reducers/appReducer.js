@@ -1,5 +1,5 @@
 const initialState = {
-    responseData: null
+    recipes: null
 }
 
 export const appReducer = (
@@ -7,8 +7,8 @@ export const appReducer = (
     action
 ) => {
     switch (action.type) {
-        case "setResponseData":
-            return {...state, responseData: action.data}
+        case "setRecipes":
+            return {...state, recipes: action.data}
         default:
             return state
     }
