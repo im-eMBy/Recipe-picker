@@ -1,42 +1,40 @@
-.is-vegan__outer-container {
+.dish-type__outer-container {
     width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
 }
-.is-vegan__inner-container {
+.dish-type__inner-container {
     position: relative;
     background-color: #D1E2CA;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     border-radius: 40px;
     border: 10px solid #F5F5F5;
     overflow: hidden;
-    .is-vegan__option {
-        padding: 5px;
+    .dish-type__option {
+        padding: 10px 0;
         background-color: transparent;
         border: none;
         cursor: pointer;
         z-index: 1;
         width: 25%;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 5px;
     }
-    .is-vegan__icon-container {
-        margin: 5px 0;
-        z-index: 1;
-        width: 33%;
-        max-width: 100px;
+    .dish-type__icon-container {
+        width: 2em;
     }
-    .is-vegan__overlay {
+    .dish-type__overlay {
         background-color: #FFC2C2;
         position: absolute;
         border-radius: 10px;
         width: 25%;
-        height: 100%;
+        height: 50%;
         transition-duration: 0.3s;
     }
 }

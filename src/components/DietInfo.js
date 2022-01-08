@@ -9,6 +9,7 @@ import { ClinicalDiets } from "./ClinicalDiets";
 import { AllergiesSelection } from "./AllergiesSelection";
 import { KeyWordsInput } from "./KeyWordsInput";
 import { RecipesList } from "./RecipesList";
+import { DishTypeSelection } from "./DishTypeSelection";
 
 import { generateURL } from "../api/generate-url";
 import { apiGetRecipies } from "../api/api-request";
@@ -23,9 +24,10 @@ export const DietInfo = () => {
         <IsVeganSelection />
         <ClinicalDiets />
         <AllergiesSelection />
-        <KeyWordsInput />
+        <DishTypeSelection/>
+        {/* <KeyWordsInput /> */}
         <button style={{ backgroundColor: "green" }} onClick={() => { apiGetRecipies(generateURL(queryState), setRecipes) }}>Test</button>
-        <p>{generateURL(queryState)}</p>
+        {/* <p>{generateURL(queryState)}</p> */}
         {recipes !== null ? <RecipesList /> : null}
     </div>
 }

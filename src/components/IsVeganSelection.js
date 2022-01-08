@@ -1,15 +1,15 @@
-import reactDom from 'react-dom';
-import { useSelector } from 'react-redux';
-import { actionCreators } from '../state/action-creators';
-import { bindActionCreators } from 'redux';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import reactDom from "react-dom";
+import { useSelector } from "react-redux";
+import { actionCreators } from "../state/action-creators";
+import { bindActionCreators } from "redux";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 import "../scss/_is-vegan-selection.scss";
 
-import vegetarianIcon from '../images/icons/vegetarian.png';
-import veganIcon from '../images/icons/vegan.png';
-import pescatarianIcon from '../images/icons/fish.png'
+import vegetarianIcon from "../images/icons/vegetarian.png";
+import veganIcon from "../images/icons/vegan.png";
+import pescatarianIcon from "../images/icons/fish.png"
 
 export const IsVeganSelection = () => {
     const { isVegan } = useSelector((state) => state.query);
@@ -31,23 +31,23 @@ export const IsVeganSelection = () => {
         setIsVegan(ev.currentTarget.value);
     }
 
-    return <div className='is-vegan__container'>
-        <h1 className='is-vegan__question'>Are you on a plantbased diet?</h1>
-        <div className="is-vegan__selection">
-            <button className="is-vegan__option" value='no' onClick={(ev) => handleClick(ev)}>No</button>
-            <button className="is-vegan__option" value='pescatarian' onClick={(ev) => handleClick(ev)}>
+    return <div className="is-vegan__outer-container">
+        <h1 className="is-vegan__question">Are you on a plantbased diet?</h1>
+        <div className="is-vegan__inner-container">
+            <button className="is-vegan__option" value="no" onClick={(ev) => handleClick(ev)}>No</button>
+            <button className="is-vegan__option" value="pescatarian" onClick={(ev) => handleClick(ev)}>
                 <div className="icon-container is-vegan__icon-container">
                     <img src={pescatarianIcon} alt="" />
                 </div>
                 <span>Pescatarian</span>
             </button>
-            <button className="is-vegan__option" value='vegetarian' onClick={(ev) => handleClick(ev)}>
+            <button className="is-vegan__option" value="vegetarian" onClick={(ev) => handleClick(ev)}>
                 <div className="icon-container is-vegan__icon-container">
                     <img src={vegetarianIcon} alt="" />
                 </div>
                 <span>Vegetarian</span>
             </button>
-            <button className="is-vegan__option" value='vegan' onClick={(ev) => handleClick(ev)}>
+            <button className="is-vegan__option" value="vegan" onClick={(ev) => handleClick(ev)}>
                 <div className="icon-container is-vegan__icon-container">
                     <img src={veganIcon} alt="" />
                 </div>

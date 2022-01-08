@@ -3,7 +3,7 @@
 export const setRecipes = (data) => {
     return (dispatch) => {
         dispatch({
-            type: 'setRecipes',
+            type: "setRecipes",
             data: data
         })
     }
@@ -16,7 +16,7 @@ export const setRecipes = (data) => {
 export const setKeyWords = (text) => {
     return (dispatch) => {
         dispatch({
-            type: 'setKeyWords',
+            type: "setKeyWords",
             text: text
         })
     }
@@ -27,8 +27,19 @@ export const setKeyWords = (text) => {
 export const setIsVegan = (isVegan) => {
     return (dispatch) => {
         dispatch({
-            type: 'setIsVegan',
+            type: "setIsVegan",
             isVegan: isVegan
+        })
+    }
+}
+
+//dish type
+
+export const setDishType = (dishType) => {
+    return (dispatch) => {
+        dispatch({
+            type: "setDishType",
+            dishType: dishType
         })
     }
 }
@@ -38,7 +49,7 @@ export const setIsVegan = (isVegan) => {
 export const setIsHighProtein = (isHighProtein) => {
     return (dispatch) => {
         dispatch({
-            type: 'setIsHighProtein',
+            type: "setIsHighProtein",
             isHighProtein: isHighProtein
         })
     }
@@ -46,7 +57,7 @@ export const setIsHighProtein = (isHighProtein) => {
 export const setIsNoSugar = (isNoSugar) => {
     return (dispatch) => {
         dispatch({
-            type: 'setIsNoSugar',
+            type: "setIsNoSugar",
             isNoSugar: isNoSugar
         })
     }
@@ -54,7 +65,7 @@ export const setIsNoSugar = (isNoSugar) => {
 export const setIsHighFiber = (isHighFiber) => {
     return (dispatch) => {
         dispatch({
-            type: 'setIsHighFiber',
+            type: "setIsHighFiber",
             isHighFiber: isHighFiber
         })
     }
@@ -65,7 +76,7 @@ export const setIsHighFiber = (isHighFiber) => {
 export const setAllergyPeanuts = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyPeanuts',
+            type: "setAllergyPeanuts",
             isAllergy: isAllergy
         })
     }
@@ -73,7 +84,7 @@ export const setAllergyPeanuts = (isAllergy) => {
 export const setAllergyTreenuts = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyTreenuts',
+            type: "setAllergyTreenuts",
             isAllergy: isAllergy
         })
     }
@@ -81,7 +92,7 @@ export const setAllergyTreenuts = (isAllergy) => {
 export const setAllergyWheat = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyWheat',
+            type: "setAllergyWheat",
             isAllergy: isAllergy
         })
     }
@@ -89,7 +100,7 @@ export const setAllergyWheat = (isAllergy) => {
 export const setAllergySoy = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergySoy',
+            type: "setAllergySoy",
             isAllergy: isAllergy
         })
     }
@@ -97,7 +108,7 @@ export const setAllergySoy = (isAllergy) => {
 export const setAllergyDairy = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyDairy',
+            type: "setAllergyDairy",
             isAllergy: isAllergy
         })
     }
@@ -105,7 +116,7 @@ export const setAllergyDairy = (isAllergy) => {
 export const setAllergyEggs = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyEggs',
+            type: "setAllergyEggs",
             isAllergy: isAllergy
         })
     }
@@ -113,7 +124,7 @@ export const setAllergyEggs = (isAllergy) => {
 export const setAllergyFish = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyFish',
+            type: "setAllergyFish",
             isAllergy: isAllergy
         })
     }
@@ -121,7 +132,7 @@ export const setAllergyFish = (isAllergy) => {
 export const setAllergyCrustaceans = (isAllergy) => {
     return (dispatch) => {
         dispatch({
-            type: 'setAllergyCrustaceans',
+            type: "setAllergyCrustaceans",
             isAllergy: isAllergy
         })
     }
@@ -132,7 +143,7 @@ export const setAllergyCrustaceans = (isAllergy) => {
 export const setClinicalCardiovascular = (isClinical) => {
     return (dispatch) => {
         dispatch({
-            type: 'setClinicalCardiovascular',
+            type: "setClinicalCardiovascular",
             isClinical: isClinical
         })
     }
@@ -140,7 +151,7 @@ export const setClinicalCardiovascular = (isClinical) => {
 export const setClinicalMetabolic = (isClinical) => {
     return (dispatch) => {
         dispatch({
-            type: 'setClinicalMetabolic',
+            type: "setClinicalMetabolic",
             isClinical: isClinical
         })
     }
@@ -148,7 +159,7 @@ export const setClinicalMetabolic = (isClinical) => {
 export const setClinicalDigestive = (isClinical) => {
     return (dispatch) => {
         dispatch({
-            type: 'setClinicalDigestive',
+            type: "setClinicalDigestive",
             isClinical: isClinical
         })
     }
@@ -156,7 +167,7 @@ export const setClinicalDigestive = (isClinical) => {
 export const setClinicalKidney = (isClinical) => {
     return (dispatch) => {
         dispatch({
-            type: 'setClinicalKidney',
+            type: "setClinicalKidney",
             isClinical: isClinical
         })
     }
