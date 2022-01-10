@@ -1,5 +1,13 @@
 //for appReducer
 
+export const setCurrentPage = (page) => {
+    return (dispatch) => {
+        dispatch({
+            type: "setCurrentPage",
+            page: page
+        })
+    }
+}
 export const setRecipes = (data) => {
     return (dispatch) => {
         dispatch({
@@ -40,6 +48,17 @@ export const setDishType = (dishType) => {
         dispatch({
             type: "setDishType",
             dishType: dishType
+        })
+    }
+}
+
+//cuisine type
+
+export const setCuisineType = (cuisinesArray) => {
+    return (dispatch) => {
+        dispatch({
+            type: "setCuisineType",
+            cuisinesArray: cuisinesArray
         })
     }
 }

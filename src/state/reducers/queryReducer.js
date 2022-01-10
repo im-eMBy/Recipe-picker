@@ -2,6 +2,7 @@ const initialState = {
     keyWords: '',
     isVegan: 'no',
     dishType: 'not specified',
+    cuisineType: [],
     superpowers: {
         isHighProtein: false,
         isNoSugar: false,
@@ -36,6 +37,8 @@ export const queryReducer = (
             return { ...state, isVegan: action.isVegan }
         case "setDishType":
             return { ...state, dishType: action.dishType }
+        case "setCuisineType":
+            return { ...state, cuisineType: [...action.cuisinesArray] }
         case "setIsHighProtein":
             return { ...state, superpowers: { ...state.superpowers, isHighProtein: action.isHighProtein } }
         case "setIsNoSugar":

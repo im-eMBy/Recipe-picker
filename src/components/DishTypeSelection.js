@@ -43,7 +43,9 @@ export const DishTypeSelection = () => {
     return <div className="dish-type__outer-container">
         <h1>Choose dish type</h1>
         <div className="dish-type__inner-container">
-            <button className="dish-type__option" value="not specified" onClick={(ev) => handleClick(ev)}>Not specified</button>
+            <button className="dish-type__option" value="not specified" onClick={(ev) => handleClick(ev)}>
+                <span>Not specified</span>
+            </button>
             <button className="dish-type__option" value="main course" onClick={(ev) => handleClick(ev)}>
                 <span>Main course</span>
                 <div className="icon-container dish-type__icon-container">
@@ -81,7 +83,7 @@ export const DishTypeSelection = () => {
                 </div>
             </button>
             <button className="dish-type__option" value="condiments" onClick={(ev) => handleClick(ev)}>
-            <span>Condiments and Sauces</span>
+                <span>Condiments and Sauces</span>
                 <div className="icon-container dish-type__icon-container">
                     <img src={condimentsIcon} alt="" />
                 </div>

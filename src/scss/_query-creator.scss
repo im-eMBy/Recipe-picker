@@ -1,12 +1,14 @@
-.diet-info {
+.query-creator {
     position: relative;
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     padding-top: 20px;
+    background-color: #66666688;
     &::after {
         content: "";
         width: 100%;
@@ -14,7 +16,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        background-image: linear-gradient(#66666688, #66666688), url(../images/foodie2.jpg);
+        background-image: url(../images/foodie2.jpg);
         background-size: cover;
         background-position: center;
         filter: blur(3px);

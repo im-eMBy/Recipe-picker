@@ -32,7 +32,6 @@ const noCrustaceansCall = '&health=crustacean-free';
 
 export const generateURL = (queryState) => {
     let url = API_URL + appIdCall + apiKeyCall;
-    url += `&q=${queryState.keyWords}`;
     switch (queryState.isVegan) {
         case "pescatarian":
             url += pescatarianCall;
@@ -47,6 +46,18 @@ export const generateURL = (queryState) => {
             //do nothing
             break;
     }
+    if (queryState.allergies.treenuts) url += noTreenutsCall;
+    if (queryState.allergies.peanuts) url += noPeanutsCall;
+    if (queryState.allergies.wheat) url += noWheatCall;
+    if (queryState.allergies.soy) url += noSoyCall;
+    if (queryState.allergies.dairy) url += noDairyCall;
+    if (queryState.allergies.eggs) url += noEggsCall;
+    if (queryState.allergies.fish) url += noFishCall;
+    if (queryState.allergies.crustaceans) url += noCrustaceansCall;
+    if (queryState.clinical.cardiovascular) url += cardiovascularCall;
+    if (queryState.clinical.metabolic) url += metabolicCall;
+    if (queryState.clinical.kidney) url += kidneyCall;
+    if (queryState.clinical.digestive) url += digestiveCall;
     switch (queryState.dishType) {
         case "main course":
             url += mainCourseCall;
@@ -70,17 +81,7 @@ export const generateURL = (queryState) => {
             //do nothing
             break;
     }
-    if (queryState.allergies.treenuts) url += noTreenutsCall;
-    if (queryState.allergies.peanuts) url += noPeanutsCall;
-    if (queryState.allergies.wheat) url += noWheatCall;
-    if (queryState.allergies.soy) url += noSoyCall;
-    if (queryState.allergies.dairy) url += noDairyCall;
-    if (queryState.allergies.eggs) url += noEggsCall;
-    if (queryState.allergies.fish) url += noFishCall;
-    if (queryState.allergies.crustaceans) url += noCrustaceansCall;
-    if (queryState.clinical.cardiovascular) url += cardiovascularCall;
-    if (queryState.clinical.metabolic) url += metabolicCall;
-    if (queryState.clinical.kidney) url += kidneyCall;
-    if (queryState.clinical.digestive) url += digestiveCall;
+    url += `&q=${queryState.keyWords}`;
+    if (url === API_URL + appIdCall + apiKeyCall) url += maxCalorieCall;
     return url;
 }

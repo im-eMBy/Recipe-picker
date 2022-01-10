@@ -1,10 +1,10 @@
-import { DietInfo } from "./components/DietInfo";
+import { QueryCreator } from "./components/QueryCreator";
 import "./scss/index.scss";
 
 function App() {
   return (
     <div className="App">
-      <DietInfo/>
+      <QueryCreator/>
     </div>
   );
 }
