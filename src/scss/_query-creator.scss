@@ -1,3 +1,5 @@
+@import "./utilis/colors";
+
 .query-creator {
     position: relative;
     min-height: 100vh;
@@ -8,7 +10,7 @@
     justify-content: center;
     gap: 15px;
     padding-top: 20px;
-    background-color: #66666688;
+    background-color: #33333388;
     &::after {
         content: "";
         width: 100%;
@@ -21,5 +23,22 @@
         background-position: center;
         filter: blur(3px);
         z-index: -1;
+    }
+    &__nav-buttons {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__nav-button {
+        background-color: $color-blue;
+        border: 5px solid $color-white;
+        border-radius: 20px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        &:hover {
+            background-color: darken($color-blue, 5%);
+        }
     }
 }

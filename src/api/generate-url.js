@@ -15,6 +15,7 @@ const starterCall = '&dishType=Starter';
 const dessertCall = '&dishType=Dessert';
 const saladCall = '&dishType=Salad';
 const drinksCall = '&dishType=Drinks';
+const condimentsCall = '&dishType=Condiments%20and%20sauces';
 
 const cardiovascularCall = '&health=DASH';
 const metabolicCall = '&health=sugar-conscious';
@@ -29,6 +30,8 @@ const noDairyCall = '&health=dairy-free';
 const noEggsCall = '&health=egg-free';
 const noFishCall = '&health=fish-free';
 const noCrustaceansCall = '&health=crustacean-free';
+
+const cuisineCall = '&cuisineType=';
 
 export const generateURL = (queryState) => {
     let url = API_URL + appIdCall + apiKeyCall;
@@ -77,11 +80,21 @@ export const generateURL = (queryState) => {
         case "drinks":
             url += drinksCall
             break;
+        case "condiments":
+            url += condimentsCall;
+            break;
         default:
             //do nothing
             break;
     }
+    queryState.cuisineType.forEach(cuisine => {
+        let param = cuisine;
+        if (param.includes(" ")) {
+            param = param.replace(/\s/g, '%20');
+        }
+        url += `${cuisineCall}${param}`;
+    })
     url += `&q=${queryState.keyWords}`;
-    if (url === API_URL + appIdCall + apiKeyCall) url += maxCalorieCall;
+    if (url === API_URL + appIdCall + apiKeyCall + '&q=') url += maxCalorieCall;
     return url;
 }

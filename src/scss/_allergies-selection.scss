@@ -40,10 +40,10 @@
         transition-duration: 0.3s;
     }
     &--active {
-        background-color: #FFC2C2;
+        background-color: #FF9999;
         border-radius: 0;
         &:hover {
-            background-color: darken(#FFC2C2, 5%);
+            background-color: darken(#FF9999, 5%);
         }
     }
 }

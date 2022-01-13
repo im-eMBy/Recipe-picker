@@ -30,7 +30,7 @@ export const RecipesList = () => {
     // }
 
     return <>
-        {/* <h1>Showing {recipes.length } out of: {responseData.count} found</h1> */}
+        <h1>{recipes.length}</h1>
         <ul>
             {getLinks()}
         </ul>

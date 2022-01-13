@@ -8,6 +8,14 @@ export const setCurrentPage = (page) => {
         })
     }
 }
+export const setCurrentSubpage = (page) => {
+    return (dispatch) => {
+        dispatch({
+            type: "setCurrentSubpage",
+            page: page
+        })
+    }
+}
 export const setRecipes = (data) => {
     return (dispatch) => {
         dispatch({
@@ -59,33 +67,6 @@ export const setCuisineType = (cuisinesArray) => {
         dispatch({
             type: "setCuisineType",
             cuisinesArray: cuisinesArray
-        })
-    }
-}
-
-//superpowers
-
-export const setIsHighProtein = (isHighProtein) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setIsHighProtein",
-            isHighProtein: isHighProtein
-        })
-    }
-}
-export const setIsNoSugar = (isNoSugar) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setIsNoSugar",
-            isNoSugar: isNoSugar
-        })
-    }
-}
-export const setIsHighFiber = (isHighFiber) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setIsHighFiber",
-            isHighFiber: isHighFiber
         })
     }
 }

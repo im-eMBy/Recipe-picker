@@ -1,5 +1,6 @@
 const initialState = {
-    currentPage: "query-1",
+    currentPage: "preQuery",
+    currentSubpage: "query-1",
     recipes: null
 }
 
@@ -12,6 +13,8 @@ export const appReducer = (
             return { ...state, recipes: action.data }
         case "setCurrentPage":
             return { ...state, currentPage: action.page }
+        case "setCurrentSubpage":
+            return { ...state, currentSubpage: action.page }
         default:
             return state
     }
