@@ -10,7 +10,34 @@
 .ingredients-selection__inner-container {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     overflow: hidden;
+}
+.ingredients-selection__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    h2 {
+        color: #F5F5F5;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    button {
+        background-color: $color-blue;
+        border: 5px solid $color-white;
+        border-radius: 20px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        &:hover {
+            background-color: darken($color-blue, 5%);
+        }
+    }
 }

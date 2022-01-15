@@ -1,6 +1,4 @@
-const API_URL = 'https://api.edamam.com/api/recipes/v2?type=public&random=true';
-
-const maxCalorieCall = '&nutrients%5BENERC_KCAL%5D=0-1000';
+const API_URL = 'https://api.edamam.com/api/recipes/v2?type=public&random=true&imageSize=REGULAR';
 
 const appIdCall = `&app_id=${process.env.REACT_APP_API_ID}`;
 const apiKeyCall = `&app_key=${process.env.REACT_APP_API_KEY}`;
@@ -33,6 +31,11 @@ const noCrustaceansCall = '&health=crustacean-free';
 
 const cuisineCall = '&cuisineType=';
 
+const maxCalorieCall = '&nutrients%5BENERC_KCAL%5D=0-1000';
+const minProteinCall = '&nutrients%5BPROCNT%5D=10%2B';
+
+const minIngredientsCall = '&ingr=5%2B';
+
 export const generateURL = (queryState) => {
     let url = API_URL + appIdCall + apiKeyCall;
     switch (queryState.isVegan) {
@@ -64,6 +67,8 @@ export const generateURL = (queryState) => {
     switch (queryState.dishType) {
         case "main course":
             url += mainCourseCall;
+            url += minProteinCall;
+            url += minIngredientsCall;
             break;
         case "soup":
             url += soupCall;

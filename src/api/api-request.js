@@ -22,16 +22,21 @@ export async function apiGetRecipies(url, successCallback) {
 
     firstRes = await singleGetFetch(url);
     console.log(firstRes);
-    secondRes = await singleGetFetch(url);
-    console.log(secondRes);
-    thirdRes = await singleGetFetch(url);
-    console.log(thirdRes);
-
-    let recipesList = [...firstRes.hits.map(hit => hit.recipe), ...secondRes.hits.map(hit => hit.recipe), ...thirdRes.hits.map(hit => hit.recipe)];
-
+    let recipesList = [...firstRes.hits.map(hit => hit.recipe)];
+    if (firstRes.count > 40) {
+        secondRes = await singleGetFetch(url);
+        console.log(secondRes);
+        recipesList = [...recipesList, ...secondRes.hits.map(hit => hit.recipe)];
+    }
+    if (firstRes.count > 100) {
+        thirdRes = await singleGetFetch(url);
+        console.log(thirdRes);
+        recipesList = [...recipesList, ...thirdRes.hits.map(hit => hit.recipe)];
+    }
 
     //filtering recipes before setting array to state
-    if(url.includes("&dishType=Main%20course"))  recipesList = spicesFilter(recipesList);
-   
+    if (url.includes("&dishType=Main%20course")) recipesList = spicesFilter(recipesList);
+    recipesList = recipesList.filter((el, i, array) => array.indexOf(el) === i);
+
     successCallback(recipesList);
 }

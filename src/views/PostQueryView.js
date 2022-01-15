@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 import { RecipesList } from "../components/RecipesList";
 import { IngredientsSelection } from "../components/IngredientsSelection";
+import { SingleRecipeSelect } from "../components/SingleRecipeSelect";
 
 import "../scss/_post-query-view.scss";
 
@@ -16,18 +17,39 @@ export const PostQueryView = () => {
     const { recipes, currentPage, currentSubpage } = useSelector((state) => state.app);
 
     useEffect(() => {
-        if (queryState.isVegan !== "no") { setCurrentSubpage("ingredients - vegetables/fruits"); return }
+        // if (recipes.length < 11)
+        if (queryState.isVegan !== "no") { setCurrentSubpage("ingredients - vegetables"); return }
         setCurrentSubpage("ingredients - meats");
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const pages = ["ingredients - meats", "ingredients - vegetables/fruits", "ingredients - grains"]
+    const pages = ["ingredients - meats", "ingredients - vegetables", "ingredients - grains", "ingredients - dairy", "single recipe select"];
 
     const handleNextPage = () => {
-        setCurrentSubpage(pages[pages.indexOf(currentSubpage) + 1]);
+        const next = pages[pages.indexOf(currentSubpage) + 1];
+        setCurrentSubpage(next);
+    }
+
+    const getContent = () => {
+        if (recipes === null) return <h1>Loading...</h1>
+        switch (currentSubpage) {
+            case "ingredients - meats":
+                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["meats", "poultry", "seafood"]} />
+            case "ingredients - vegetables":
+                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["vegetables", "fruits"]} />
+            case "ingredients - grains":
+                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["grains", "bread, rolls and tortillas"]} />
+            case "ingredients - dairy":
+                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["dairy", "cheese"]} />
+            //"bread, rolls and tortillas", "grains", "fruits", "vegetables", "meats", "poultry", "dairy", "cheese"
+            case "single recipe select":
+                return <SingleRecipeSelect />
+            default:
+                return null;
+        }
     }
 
     return <div className="post-query-view">
-        {recipes !== null ? <IngredientsSelection nextPage={handleNextPage} ingredientType1="vegetables" ingredientType2="fruits" /> : null}
-        {/* {recipes !== null ? <RecipesList /> : null} */}
+        {getContent()}
+        {recipes !== null ? <RecipesList /> : null}
     </div>
 }
