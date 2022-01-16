@@ -22,7 +22,7 @@ export const PostQueryView = () => {
         setCurrentSubpage("ingredients - meats");
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const pages = ["ingredients - meats", "ingredients - vegetables", "ingredients - grains", "ingredients - dairy", "single recipe select"];
+    const pages = ["ingredients - meats", "ingredients - vegetables", "ingredients - grains", "ingredients - dairy", "single recipe select", "recipes list"];
 
     const handleNextPage = () => {
         const next = pages[pages.indexOf(currentSubpage) + 1];
@@ -42,7 +42,9 @@ export const PostQueryView = () => {
                 return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["dairy", "cheese"]} />
             //"bread, rolls and tortillas", "grains", "fruits", "vegetables", "meats", "poultry", "dairy", "cheese"
             case "single recipe select":
-                return <SingleRecipeSelect />
+                return <SingleRecipeSelect nextPage={handleNextPage} />
+            case "recipes list":
+                return <RecipesList />
             default:
                 return null;
         }
@@ -50,6 +52,6 @@ export const PostQueryView = () => {
 
     return <div className="post-query-view">
         {getContent()}
-        {recipes !== null ? <RecipesList /> : null}
+        {/* {recipes !== null ? <RecipesList /> : null} */}
     </div>
 }

@@ -1,7 +1,8 @@
 const initialState = {
     currentPage: "preQuery",
-    currentSubpage: "query-1",
-    recipes: null
+    currentSubpage: "is vegan",
+    recipes: null,
+    selectedRecipes: []
 }
 
 export const appReducer = (
@@ -15,6 +16,10 @@ export const appReducer = (
             return { ...state, currentPage: action.page }
         case "setCurrentSubpage":
             return { ...state, currentSubpage: action.page }
+        case "addSelectedRecipe":
+            return { ...state, selectedRecipes: [...state.selectedRecipes, action.recipe] }
+        case "removeSelectedRecipe":
+            return { ...state, selectedRecipes: state.selectedRecipes.filter(recipe => recipe !== action.recipe) }
         default:
             return state
     }

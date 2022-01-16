@@ -23,10 +23,10 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
 
     const handleIngredientExclusion = (ingredient) => {
         setIngredientsExcluded([...ingredientsExcluded, ingredient]);
-        setIngredients(ingredients.filter(el => {return el.ingredient !== ingredient.ingredient}));
+        setIngredients(ingredients.filter(el => { return el.ingredient !== ingredient.ingredient }));
     }
     const handleIngredientInclusion = (ingredient) => {
-        setIngredientsExcluded(ingredientsExcluded.filter(el => {return el.ingredient !== ingredient.ingredient}));
+        setIngredientsExcluded(ingredientsExcluded.filter(el => { return el.ingredient !== ingredient.ingredient }));
         setIngredients([...ingredients, ingredient]);
     }
     const handleNextPage = () => {
@@ -39,43 +39,46 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     }
     const getIngredientsList = () => {
         return ingredients.map((el, i) => {
-                const percentOfRecipes = (el.amount * 100 / recipes.length).toFixed(1);
-                return <li key={el.ingredient}>
-                    <button onClick={() => handleIngredientExclusion(el)}>
-                        {el.ingredient} - {el.amount > 1 ? `${percentOfRecipes}% of recipes` : "1 recipe"}
-                    </button>
-                </li>
+            const percentOfRecipes = (el.amount * 100 / recipes.length).toFixed(1);
+            return <li key={el.ingredient}>
+                <button onClick={() => handleIngredientExclusion(el)}>
+                    {el.ingredient} - {el.amount > 1 ? `${percentOfRecipes}% of recipes` : "1 recipe"}
+                </button>
+            </li>
         })
     }
     const getExcludedIngredientsList = () => {
         return ingredientsExcluded.map((el, i) => {
-                const percentOfRecipes = (el.amount * 100 / recipes.length).toFixed(1);
-                return <li key={el.ingredient}>
-                    <button onClick={() => handleIngredientInclusion(el)}>
-                        {el.ingredient} - {el.amount > 1 ? `${percentOfRecipes}% of recipes` : "1 recipe"}
-                    </button>
-                </li>
+            const percentOfRecipes = (el.amount * 100 / recipes.length).toFixed(1);
+            return <li key={el.ingredient}>
+                <button onClick={() => handleIngredientInclusion(el)}>
+                    {el.ingredient} - {el.amount > 1 ? `${percentOfRecipes}% of recipes` : "1 recipe"}
+                </button>
+            </li>
         })
     }
 
-    return <div className="ingredients-selection__outer-container">
-        <h1>Select ingredients to exclude</h1>
-        <div className="ingredients-selection__inner-container">
-            <div className="ingredients-selection__list ingredients-selection__list--included">
-                <h2>Possible ingredients:</h2>
-                <ul>
-                    {getIngredientsList()}
-                </ul>
-            </div>
-            <div className="ingredients-selection__list ingredients-selection__list--excluded">
-                <h2>Excluded ingredients:</h2>
-                <ul>
-                    {getExcludedIngredientsList()}
-                </ul>
+    return <>
+        <div className="ingredients-selection__outer-container">
+            <h1>Select ingredients to exclude</h1>
+            <div className="ingredients-selection__inner-container">
+                <div className="ingredients-selection__list ingredients-selection__list--included">
+                    <h2>Possible ingredients:</h2>
+                    <ul>
+                        {getIngredientsList()}
+                    </ul>
+                </div>
+                <div className="ingredients-selection__list ingredients-selection__list--excluded">
+                    <h2>Excluded ingredients:</h2>
+                    <ul>
+                        {getExcludedIngredientsList()}
+                    </ul>
+                </div>
             </div>
         </div>
-        <div className="ingredients-selection__nav-button">
+        <div className="ingredients-selection__nav-buttons">
+            <button>Restart</button>
             <button onClick={() => handleNextPage()}>Next</button>
         </div>
-    </div>
+    </>
 }

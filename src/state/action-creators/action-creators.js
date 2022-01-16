@@ -24,6 +24,22 @@ export const setRecipes = (data) => {
         })
     }
 }
+export const addSelectedRecipe = (recipe) => {
+    return (dispatch) => {
+        dispatch({
+            type: "addSelectedRecipe",
+            recipe: recipe
+        })
+    }
+}
+export const removeSelectedRecipe = (recipe) => {
+    return (dispatch) => {
+        dispatch({
+            type: "removeSelectedRecipe",
+            recipe: recipe
+        })
+    }
+}
 
 //for queryReducer
 

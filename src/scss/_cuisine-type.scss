@@ -1,47 +1,49 @@
+@import "./utilis/mixins";
+@import "./utilis/colors";
+
 .cuisine-type__outer-container {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    @include glass;
+    @include outer-container;
 }
 .cuisine-type__inner-container {
-    background-color: #BAD4B0;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border-radius: 40px;
-    border: 10px solid #F5F5F5;
+    gap: 8px;
+    border-radius: 30px;
     overflow: hidden;
 }
 .cuisine-type__option {
     &:nth-of-type(1) {
-        font-size: 1.2em;
-        width: 100%;
+        width: 40%;
+        min-width: 300px;
+        span {
+            font-size: 1.2em;
+        }
     }
     white-space: pre-line;
-    background-color: #BAD4B0;
+    background-color: $color-white;
     width: 20%;
+    min-width: 150px;
     min-height: calc(2.4em + 20px);
-    padding: 10px 0;
+    padding: 10px 5px;
     border: none;
-    border-radius: 40px;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
     cursor: pointer;
     &:hover {
-        background-color: darken(#BAD4B0, 5%);
+        background-color: lighten($color-white, 20%);
         transition-duration: 0.3s;
     }
     &--active {
-        background-color: #FF9999;
-        border-radius: 0;
+        background-color: $color-red;
         &:hover {
-            background-color: darken(#FF9999, 5%);
+            background-color: lighten($color-red, 20%);
         }
     }
 }

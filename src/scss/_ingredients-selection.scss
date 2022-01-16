@@ -1,11 +1,9 @@
-@import "./utilis/_colors.scss";
+@import "./utilis/_colors";
+@import "./utilis/mixins";
 
 .ingredients-selection__outer-container {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    @include glass;
+    @include outer-container;
 }
 .ingredients-selection__inner-container {
     width: 100%;
@@ -14,30 +12,67 @@
     overflow: hidden;
 }
 .ingredients-selection__list {
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     h2 {
+        text-align: center;
         color: #F5F5F5;
         font-size: 20px;
         font-weight: 600;
     }
     ul {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         gap: 8px;
+
     }
     button {
-        background-color: $color-blue;
-        border: 5px solid $color-white;
-        border-radius: 20px;
-        padding: 5px 10px;
+        border: none;
+        border-radius: 15px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        
+    }
+    &--included {
+        button {
+            background-color: $color-green;
+            &:hover {
+                background-color: lighten($color-green, 20%);
+            }
+        }
+    }
+    &--excluded {
+        button {
+            background-color: $color-red;
+            &:hover {
+                background-color: lighten($color-red, 20%);
+            }
+        }
+    }
+}
+.ingredients-selection__nav-buttons {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(50% - 300px);
+    button {
+        @include glass;
+        min-width: 200px;
+        box-shadow: 10px 10px 35px 0px #000000;
+        border: none;
+        border-radius: 15px;
+        padding: 15px 10px;
         cursor: pointer;
         transition-duration: 0.3s;
         &:hover {
-            background-color: darken($color-blue, 5%);
+            background-color: $color-green;
         }
     }
 }

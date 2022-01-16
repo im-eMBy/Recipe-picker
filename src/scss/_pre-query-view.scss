@@ -1,4 +1,5 @@
 @import "./utilis/colors";
+@import "./utilis/mixins";
 
 .query-creator {
     position: relative;
@@ -21,8 +22,11 @@
         background-image: url(../images/foodie2.jpg);
         background-size: cover;
         background-position: center;
-        filter: blur(3px);
+        // filter: blur(1px);
         z-index: -1;
+        @media (max-width: 600px) {
+            background-image: url(../images/foodie1m.jpg);
+        }
     }
     &__nav-buttons {
         width: 80%;
@@ -31,14 +35,16 @@
         align-items: center;
     }
     &__nav-button {
-        background-color: $color-blue;
-        border: 5px solid $color-white;
-        border-radius: 20px;
-        padding: 5px 10px;
+        @include glass;
+        min-width: 200px;
+        box-shadow: 10px 10px 35px 0px #000000;
+        border: none;
+        border-radius: 15px;
+        padding: 15px 10px;
         cursor: pointer;
         transition-duration: 0.3s;
         &:hover {
-            background-color: darken($color-blue, 5%);
+            background-color: $color-green;
         }
     }
 }

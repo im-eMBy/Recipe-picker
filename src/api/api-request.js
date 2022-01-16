@@ -15,7 +15,7 @@ const singleGetFetch = (url) => {
     })
 
 }
-export async function apiGetRecipies(url, successCallback) {
+export async function apiGetRecipies(url, callback) {
     let firstRes = null;
     let secondRes = null;
     let thirdRes = null;
@@ -36,7 +36,7 @@ export async function apiGetRecipies(url, successCallback) {
 
     //filtering recipes before setting array to state
     if (url.includes("&dishType=Main%20course")) recipesList = spicesFilter(recipesList);
-    recipesList = recipesList.filter((el, i, array) => array.indexOf(el) === i);
+    recipesList = recipesList.filter((el, i, array) => array.findIndex(e => e.label === el.label) === i);
 
-    successCallback(recipesList);
+    callback(recipesList);
 }

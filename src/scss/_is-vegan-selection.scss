@@ -1,21 +1,19 @@
+@import "./utilis/mixins";
+@import "./utilis/colors";
+
 .is-vegan__outer-container {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    @include outer-container;
+    @include glass;
 }
 .is-vegan__inner-container {
     position: relative;
-    background-color: #BAD4B0;
     width: 100%;
     display: flex;
     border-radius: 40px;
-    border: 10px solid #F5F5F5;
     overflow: hidden;
     .is-vegan__option {
-        padding: 5px;
         background-color: transparent;
+        padding: 5px;
         border: none;
         cursor: pointer;
         z-index: 1;
@@ -24,6 +22,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        &:hover {
+            background-color: $color-white;
+            border-radius: 10px;
+        }
     }
     .is-vegan__icon-container {
         margin: 5px 0;
@@ -32,7 +34,7 @@
         max-width: 100px;
     }
     .is-vegan__overlay {
-        background-color: #FF9999;
+        background-color: #ff000044;
         position: absolute;
         border-radius: 10px;
         width: 25%;
