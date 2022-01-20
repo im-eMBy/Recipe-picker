@@ -1,4 +1,4 @@
-import { spicesFilter } from "../utilis/recipes-array-functions/filters";
+import { dessertFilter, sourcesFilter, spicesFilter } from "../utilis/recipes-array-functions/filters";
 
 const singleGetFetch = (url) => {
     return new Promise(res => {
@@ -36,6 +36,8 @@ export async function apiGetRecipies(url, callback) {
 
     //filtering recipes before setting array to state
     if (url.includes("&dishType=Main%20course")) recipesList = spicesFilter(recipesList);
+    if (url.includes("&dishType=Dessert")) recipesList = dessertFilter(recipesList);
+    recipesList = sourcesFilter(recipesList);
     recipesList = recipesList.filter((el, i, array) => array.findIndex(e => e.label === el.label) === i);
 
     callback(recipesList);

@@ -78,6 +78,7 @@ export const generateURL = (queryState) => {
             break;
         case "dessert":
             url += dessertCall;
+            url += minIngredientsCall;
             break;
         case "salad":
             url += saladCall;

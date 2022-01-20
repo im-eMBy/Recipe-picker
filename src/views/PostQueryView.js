@@ -33,9 +33,9 @@ export const PostQueryView = () => {
         if (recipes === null) return <h1>Loading...</h1>
         switch (currentSubpage) {
             case "ingredients - meats":
-                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["meats", "poultry", "seafood"]} />
+                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["meats", "poultry", "seafood", "cured meats"]} />
             case "ingredients - vegetables":
-                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["vegetables", "fruits"]} />
+                return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["vegetables", "fruit"]} />
             case "ingredients - grains":
                 return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["grains", "bread, rolls and tortillas"]} />
             case "ingredients - dairy":

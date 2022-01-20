@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 
-import { extractIngredients } from "../utilis/recipes-array-functions/ingredients";
-import { ingredientFilter } from "../utilis/recipes-array-functions/filters";
+import { extractIngredients, extractIngredientsAlternative } from "../utilis/recipes-array-functions/ingredients";
+import { ingredientFilter, ingredientFilterAlternative } from "../utilis/recipes-array-functions/filters";
 
 import "../scss/_ingredients-selection.scss";
 
@@ -13,13 +13,18 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     const dispatch = useDispatch();
     const { setRecipes } = bindActionCreators(actionCreators, dispatch);
     const { recipes } = useSelector((state) => state.app);
-    const [ingredients, setIngredients] = useState(extractIngredients(recipes, ingredientsTypes, 10));
+    const [ingredients, setIngredients] = useState(extractIngredientsAlternative(recipes, ingredientsTypes, 20));
     const [ingredientsExcluded, setIngredientsExcluded] = useState([]);
 
     useEffect(() => {
-        setIngredients(extractIngredients(recipes, ingredientsTypes, 10));
+        setIngredients(extractIngredientsAlternative(recipes, ingredientsTypes, 20));
         setIngredientsExcluded([]);
     }, [ingredientsTypes, recipes]);
+    useEffect(() => {
+        if(ingredients.length + ingredientsExcluded.length < 5) {
+            nextPage();
+        }
+    }, [ingredients, ingredientsExcluded, nextPage]);
 
     const handleIngredientExclusion = (ingredient) => {
         setIngredientsExcluded([...ingredientsExcluded, ingredient]);
@@ -31,8 +36,8 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     }
     const handleNextPage = () => {
         let filteredRecipes = recipes;
-        ingredientsExcluded.forEach(el => {
-            filteredRecipes = ingredientFilter(filteredRecipes, el.ingredient);
+        ingredientsExcluded.forEach(ingredient => {
+            filteredRecipes = ingredientFilterAlternative(filteredRecipes, ingredient);
         })
         setRecipes(filteredRecipes);
         nextPage();
