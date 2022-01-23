@@ -4,10 +4,7 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 
 import { IsVeganSelection } from "../components/IsVeganSelection";
-import { ClinicalDiets } from "../components/ClinicalDiets";
 import { AllergiesSelection } from "../components/AllergiesSelection";
-import { KeyWordsInput } from "../components/KeyWordsInput";
-import { RecipesList } from "../components/RecipesList";
 import { DishTypeSelection } from "../components/DishTypeSelection";
 import { CuisineType } from "../components/CuisineType";
 
@@ -18,9 +15,9 @@ import "../scss/_pre-query-view.scss";
 
 export const PreQueryView = () => {
     const dispatch = useDispatch();
-    const { setRecipes, setCurrentPage, setCurrentSubpage } = bindActionCreators(actionCreators, dispatch);
+    const { restartState, setRecipes, setCurrentPage, setCurrentSubpage } = bindActionCreators(actionCreators, dispatch);
     const queryState = useSelector((state) => state.query);
-    const { recipes, currentPage, currentSubpage } = useSelector((state) => state.app);
+    const { currentSubpage } = useSelector((state) => state.app);
     const pages = ["is vegan", "allergies", "dish type", "cuisine"];
 
     const handlePrevPage = () => {
@@ -56,7 +53,8 @@ export const PreQueryView = () => {
     return <div className="query-creator">
         {getContent()}
         <div className="query-creator__nav-buttons" style={currentSubpage === "is vegan" ? { justifyContent: "flex-end" } : null}>
-            {currentSubpage !== "is vegan" ? <button className="query-creator__nav-button nav-button" onClick={() => handlePrevPage()}>Previous</button> : null}
+            <button className="query-creator__nav-button nav-button" onClick={() => handlePrevPage()} style={currentSubpage === "is vegan" ? {display: "none"} : null}>Previous</button>
+            <button className="query-creator__nav-button nav-button" onClick={() => restartState()} style={currentSubpage === "is vegan" ? {display: "none"} : null}>Restart</button>
             <button className="query-creator__nav-button nav-button" onClick={() => handleNextPage()}>Next</button>
         </div>
     </div>

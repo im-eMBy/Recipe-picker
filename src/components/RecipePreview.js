@@ -77,7 +77,8 @@ export const RecipePreview = ({ recipeData }) => {
             <div className="recipe-preview__image-container">
                 <img src={recipeData.images.REGULAR !== undefined ? recipeData.images.REGULAR.url : recipeData.image}></img>
             </div>
-            <p >{recipeData.label}</p>
+            <p>{recipeData.label}</p>
+            <p>Source: {recipeData.source}</p>
             <p className="recipe-preview__label">Portions: {portions}</p>
         </div>
         <div className="recipe-preview__column recipe-preview__column--second">

@@ -1,0 +1,55 @@
+@import "./utilis/mixins";
+@import "./utilis/colors";
+
+.recipes-select__outer-container {
+    @include glass;
+    @include outer-container;
+    justify-content: space-between;
+    overflow: hidden;
+    min-height: 80vh;
+}
+.recipes-select__buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    .recipes-select__buttons-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+.recipes-select__button {
+    border: none;
+    min-width: 150px;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: $color-white;
+    transition-duration: 0.3s;
+    &:hover {
+        background-color: lighten($color-white, 20%);
+    }
+    .icon-container {
+        width: 25px;
+    }
+}
+.recipes-select__restart-button {
+    @include glass;
+    min-width: 200px;
+    box-shadow: 10px 10px 35px 0px #000000;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    &:hover {
+        background-color: $color-red;
+    }
+}

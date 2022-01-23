@@ -1,3 +1,11 @@
+export const restartState = () => {
+    return (dispatch) => {
+        dispatch({
+            type: "restartState"
+        })
+    }
+}
+
 //for appReducer
 
 export const setCurrentPage = (page) => {
@@ -21,22 +29,6 @@ export const setRecipes = (data) => {
         dispatch({
             type: "setRecipes",
             data: data
-        })
-    }
-}
-export const addSelectedRecipe = (recipe) => {
-    return (dispatch) => {
-        dispatch({
-            type: "addSelectedRecipe",
-            recipe: recipe
-        })
-    }
-}
-export const removeSelectedRecipe = (recipe) => {
-    return (dispatch) => {
-        dispatch({
-            type: "removeSelectedRecipe",
-            recipe: recipe
         })
     }
 }
@@ -153,39 +145,3 @@ export const setAllergyCrustaceans = (isAllergy) => {
         })
     }
 }
-
-//clinical diets
-
-export const setClinicalCardiovascular = (isClinical) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setClinicalCardiovascular",
-            isClinical: isClinical
-        })
-    }
-}
-export const setClinicalMetabolic = (isClinical) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setClinicalMetabolic",
-            isClinical: isClinical
-        })
-    }
-}
-export const setClinicalDigestive = (isClinical) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setClinicalDigestive",
-            isClinical: isClinical
-        })
-    }
-}
-export const setClinicalKidney = (isClinical) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setClinicalKidney",
-            isClinical: isClinical
-        })
-    }
-}
-

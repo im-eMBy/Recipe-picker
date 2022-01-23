@@ -11,7 +11,7 @@ import "../scss/_ingredients-selection.scss";
 
 export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     const dispatch = useDispatch();
-    const { setRecipes } = bindActionCreators(actionCreators, dispatch);
+    const { setRecipes, restartState } = bindActionCreators(actionCreators, dispatch);
     const { recipes } = useSelector((state) => state.app);
     const [ingredients, setIngredients] = useState(extractIngredientsAlternative(recipes, ingredientsTypes, 20));
     const [ingredientsExcluded, setIngredientsExcluded] = useState([]);
@@ -21,7 +21,7 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
         setIngredientsExcluded([]);
     }, [ingredientsTypes, recipes]);
     useEffect(() => {
-        if(ingredients.length + ingredientsExcluded.length < 5) {
+        if (ingredients.length + ingredientsExcluded.length < 5) {
             nextPage();
         }
     }, [ingredients, ingredientsExcluded, nextPage]);
@@ -82,7 +82,7 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
             </div>
         </div>
         <div className="ingredients-selection__nav-buttons">
-            <button>Restart</button>
+            <button onClick={() => restartState()}>Restart</button>
             <button onClick={() => handleNextPage()}>Next</button>
         </div>
     </>

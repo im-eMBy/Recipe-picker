@@ -15,11 +15,6 @@ const saladCall = '&dishType=Salad';
 const drinksCall = '&dishType=Drinks';
 const condimentsCall = '&dishType=Condiments%20and%20sauces';
 
-const cardiovascularCall = '&health=DASH';
-const metabolicCall = '&health=sugar-conscious';
-const kidneyCall = '&health=kidney-friendly';
-const digestiveCall = '&health=fodmap-free';
-
 const noPeanutsCall = '&health=peanut-free';
 const noTreenutsCall = '&health=tree-nut-free';
 const noWheatCall = '&health=wheat-free';
@@ -60,10 +55,6 @@ export const generateURL = (queryState) => {
     if (queryState.allergies.eggs) url += noEggsCall;
     if (queryState.allergies.fish) url += noFishCall;
     if (queryState.allergies.crustaceans) url += noCrustaceansCall;
-    if (queryState.clinical.cardiovascular) url += cardiovascularCall;
-    if (queryState.clinical.metabolic) url += metabolicCall;
-    if (queryState.clinical.kidney) url += kidneyCall;
-    if (queryState.clinical.digestive) url += digestiveCall;
     switch (queryState.dishType) {
         case "main course":
             url += mainCourseCall;

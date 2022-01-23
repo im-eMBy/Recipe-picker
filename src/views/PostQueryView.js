@@ -6,13 +6,13 @@ import { useEffect } from "react";
 
 import { RecipesList } from "../components/RecipesList";
 import { IngredientsSelection } from "../components/IngredientsSelection";
-import { SingleRecipeSelect } from "../components/SingleRecipeSelect";
+import { RecipeSelect } from "../components/RecipeSelect";
 
 import "../scss/_post-query-view.scss";
 
 export const PostQueryView = () => {
     const dispatch = useDispatch();
-    const { setRecipes, setCurrentPage, setCurrentSubpage } = bindActionCreators(actionCreators, dispatch);
+    const { restartState, setCurrentSubpage } = bindActionCreators(actionCreators, dispatch);
     const queryState = useSelector((state) => state.query);
     const { recipes, currentPage, currentSubpage } = useSelector((state) => state.app);
 
@@ -42,7 +42,7 @@ export const PostQueryView = () => {
                 return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["dairy", "cheese"]} />
             //"bread, rolls and tortillas", "grains", "fruits", "vegetables", "meats", "poultry", "dairy", "cheese"
             case "single recipe select":
-                return <SingleRecipeSelect nextPage={handleNextPage} />
+                return <RecipeSelect nextPage={handleNextPage} />
             case "recipes list":
                 return <RecipesList />
             default:

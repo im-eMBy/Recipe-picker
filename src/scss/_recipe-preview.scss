@@ -10,6 +10,7 @@
 .recipe-preview__column {
     display: flex;
     flex-direction: column;
+    gap: 5px;
     &--first {
         align-items: center;
         h2 {
