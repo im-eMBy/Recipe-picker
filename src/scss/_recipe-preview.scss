@@ -1,3 +1,5 @@
+@import "./utilis/colors";
+
 .recipe-preview {
     width: 100%;
     display: flex;
@@ -10,17 +12,24 @@
 .recipe-preview__column {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     &--first {
         align-items: center;
         h2 {
             text-align: center;
         }
     }
+    &--second {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+    }
     &--third {
-        gap: 10px;
         align-items: center;
         ul {
+            width: 80%;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -36,8 +45,40 @@
         width: 100%;
     }
 }
-.recipe-preview__macro-chart {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+.recipe-preview__time-and-portions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.recipe-preview__time, .recipe-preview__portions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    .icon-container {
+        width: 40%;
+        // max-width: 120px;
+    }
+}
+.recipe-preview__macro-graph {
+    width: 80%;
+    height: 20px;
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    &--carbs {
+        background-color: #415bec77;
+        flex-grow: 1;
+        transition-duration: 0.3s;
+    }
+    &--fat {
+        background-color: #e7e71477;
+        transition-duration: 0.3s;
+    }
+    &--protein {
+        background-color: #e6000088;
+        transition-duration: 0.3s;
+    }
 }

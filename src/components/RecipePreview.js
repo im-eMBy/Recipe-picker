@@ -1,11 +1,17 @@
 import { useState } from "react";
 
+import { MacronutrientsInfo } from "./MacronutrientsInfo";
+
 import "../scss/_recipe-preview.scss";
 
+import portionIcon from "../images/icons/portion.png";
+import timeIcon from "../images/icons/time.png";
+
 export const RecipePreview = ({ recipeData }) => {
-    const [thirdColumnContent, setThirdColumnContent] = useState("facts");
+    const [thirdColumnContent, setThirdColumnContent] = useState("macro");
 
     const portions = recipeData.yield;
+    const prepTime = recipeData.totalTime;
 
     const protein = (recipeData.totalNutrients.PROCNT.quantity / portions).toFixed(1);
     const fat = (recipeData.totalNutrients.FAT.quantity / portions).toFixed(1);
@@ -34,41 +40,45 @@ export const RecipePreview = ({ recipeData }) => {
         vitD: (recipeData.totalNutrients.VITD.quantity / portions).toFixed(1),
         vitK: (recipeData.totalNutrients.VITK1.quantity / portions).toFixed(1),
     }
-    
+
 
     const getNutritionalFacts = () => {
         const facts = [];
-        
+
     }
     const getIngredientsLines = () => {
         return recipeData.ingredientLines.map((ingredient, i) => <li key={i}>- {ingredient.toLowerCase()}</li>)
     }
     const getThirdColumnContent = () => {
         switch (thirdColumnContent) {
+            case "macro":
+                return <>
+                    <MacronutrientsInfo recipeData={recipeData} />
+                </>
             case "facts":
                 return <>
-                {/* <p>Energy: {energy}kcal</p>
+                    {/* <p>Energy: {energy}kcal</p>
                 <p>Protein: {protein}g</p>
                 <p>Carbs: {carbs}g</p>
                 <p>Fat: {fat}g</p>
                 <p>Fiber: {fiber}g</p> */}
-                <ul>
-                    <li>Energy: {energy}kcal</li>
-                    <li>Protein: {protein}g</li>
-                    <li>Carbs: {carbs}g</li>
-                    <li>Fat: {fat}g</li>
-                    <li>Satureted fat: {satFat}g</li>
-                    <li>Sugar: {sugar}g</li>
-                    <li>Fiber: {fiber}g</li>
-                    <li style={{marginTop: "5px"}}>Calcium: {microNutrients.calcium}mg</li>
-                    <li>Iron: {microNutrients.iron}mg</li>
-                    <li>Sodium: {microNutrients.sodium}mg</li>
-                    <li>Potassium: {microNutrients.potassium}mg</li>
-                    <li>Magnesium: {microNutrients.magnesium}mg</li>
-                    <li></li>
+                    <ul>
+                        <li>Energy: {energy}kcal</li>
+                        <li>Protein: {protein}g</li>
+                        <li>Carbs: {carbs}g</li>
+                        <li>Fat: {fat}g</li>
+                        <li>Satureted fat: {satFat}g</li>
+                        <li>Sugar: {sugar}g</li>
+                        <li>Fiber: {fiber}g</li>
+                        <li style={{ marginTop: "5px" }}>Calcium: {microNutrients.calcium}mg</li>
+                        <li>Iron: {microNutrients.iron}mg</li>
+                        <li>Sodium: {microNutrients.sodium}mg</li>
+                        <li>Potassium: {microNutrients.potassium}mg</li>
+                        <li>Magnesium: {microNutrients.magnesium}mg</li>
+                        <li></li>
 
-                    <li></li>
-                </ul>
+                        <li></li>
+                    </ul>
                 </>
         }
     }
@@ -79,7 +89,20 @@ export const RecipePreview = ({ recipeData }) => {
             </div>
             <p>{recipeData.label}</p>
             <p>Source: {recipeData.source}</p>
-            <p className="recipe-preview__label">Portions: {portions}</p>
+            <div className="recipe-preview__time-and-portions">
+                {prepTime > 0 ? <div className="recipe-preview__time">
+                    <div className="icon-container">
+                        <img src={timeIcon} />
+                    </div>
+                    <p>{prepTime} minutes</p>
+                </div> : null}
+                <div className="recipe-preview__portions">
+                    <div className="icon-container">
+                        <img src={portionIcon} />
+                    </div>
+                    <p>{portions} {portions > 1 ? "portions" : "portion"}</p>
+                </div>
+            </div>
         </div>
         <div className="recipe-preview__column recipe-preview__column--second">
             <h2>Ingredients:</h2>
@@ -89,9 +112,7 @@ export const RecipePreview = ({ recipeData }) => {
         </div>
         <div className="recipe-preview__column recipe-preview__column--third">
             <h2>Nutritional data (per portion):</h2>
-
             {getThirdColumnContent()}
         </div>
-
     </div>
 }

@@ -11,12 +11,11 @@ import deleteIcon from "../images/icons/delete.png";
 import previousIcon from "../images/icons/previous.png";
 import nextIcon from "../images/icons/next.png";
 
-
 import "../scss/_recipe-select.scss";
 
 export const RecipeSelect = ({ nextPage }) => {
     const dispatch = useDispatch();
-    const { setRecipes } = bindActionCreators(actionCreators, dispatch);
+    const { restartState, setRecipes } = bindActionCreators(actionCreators, dispatch);
     const { recipes } = useSelector((state) => state.app);
     const [currentRecipe, setCurrentRecipe] = useState(0);
 
@@ -35,16 +34,12 @@ export const RecipeSelect = ({ nextPage }) => {
         setCurrentRecipe(currentRecipe - 1);
     }
     const handleRecipeRejection = () => {
+        if(currentRecipe === recipes.length - 1) setCurrentRecipe(0);
         setRecipes(recipes.filter(recipe => recipe !== recipes[currentRecipe]));
     }
     const handleShowRecipe = () => {
         window.open(recipes[currentRecipe].url, "_blank")
     }
-    // const handleRecipeSelection = () => {
-    //     addSelectedRecipe(recipes[currentRecipe]);
-    //     setCurrentRecipe(currentRecipe + 1);
-    //     if (currentRecipe === recipes.length - 1) nextPage();
-    // }
 
     return <>
         <div className="recipes-select__outer-container">
@@ -79,6 +74,6 @@ export const RecipeSelect = ({ nextPage }) => {
                 </button>
             </div>
         </div>
-        <button className="recipes-select__restart-button">Restart</button>
+        <button className="recipes-select__restart-button" onClick={() => restartState()}>Restart</button>
     </>
 }
