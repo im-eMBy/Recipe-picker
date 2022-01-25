@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 
 import { PreQueryView } from "./views/PreQueryView";
 import { PostQueryView } from "./views/PostQueryView";
+import { Footer } from "./components/Footer";
+
 import "./scss/index.scss";
 
 const App = () => {
@@ -11,8 +13,8 @@ const App = () => {
     switch (currentPage) {
       case "preQuery":
         return <PreQueryView />
-        case "postQuery":
-          return <PostQueryView />
+      case "postQuery":
+        return <PostQueryView />
       default:
         return <>
           {/* <PreQueryView /> */}
@@ -21,6 +23,7 @@ const App = () => {
   }
   return <>
     {getContent()}
+    <Footer />
   </>
 }
 

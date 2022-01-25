@@ -47,7 +47,7 @@ export const spicesFilter = (recipesArray) => {
     })
 }
 export const sourcesFilter = (recipesArray) => {
-    const excludedSources = ["Food Network"];
+    const excludedSources = ["Food Network", "winnerdinners.com"];
     return recipesArray.filter(recipe => {
         if (excludedSources.includes(recipe.source)) console.log("Filtered(sourcesFilter):", recipe);
         return !excludedSources.includes(recipe.source);
