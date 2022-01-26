@@ -22,6 +22,10 @@
         span {
             font-size: 1.2em;
         }
+        @media (max-width: 450px) {
+            width: 80%;
+            min-width: 200px;
+        }
     }
     white-space: pre-line;
     background-color: $color-white;
@@ -45,5 +49,8 @@
         &:hover {
             background-color: lighten($color-red, 20%);
         }
+    }
+    @media (max-width: 450px) {
+        width: 75%;
     }
 }

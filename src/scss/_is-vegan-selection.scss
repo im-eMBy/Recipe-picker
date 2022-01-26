@@ -7,9 +7,10 @@
 }
 .is-vegan__inner-container {
     position: relative;
+    background-color: $color-white;
     width: 100%;
     display: flex;
-    border-radius: 40px;
+    border-radius: 15px;
     overflow: hidden;
     justify-content: center;
     .is-vegan__icon-container {
@@ -41,19 +42,19 @@
     transition-duration: 0.3s;
     @media (max-width: 800px) {
         flex-direction: row;
-        width: 80%;
+        width: 100%;
         height: 3em;
     }
 }
 .is-vegan__overlay {
     background-color: #ff000044;
     position: absolute;
-    border-radius: 10px;
+    border-radius: 15px;
     width: 25%;
     height: 100%;
     transition-duration: 0.3s;
     @media (max-width: 800px) {
-        width: 80%;
+        width: 100%;
         height: 25%;
     }
 }

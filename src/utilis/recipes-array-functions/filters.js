@@ -19,7 +19,6 @@ export const ingredientFilterAlternative = (recipesArray, ingredient, includesEx
             if (ingr.food === null) return;
             if (ingr.food.toLowerCase().includes(ingredient.ingredient) && ingr.foodCategory.toLowerCase() === ingredient.category) {
                 toFilter = !toFilter;
-                console.log(ingredient, ingr.food);
             }
         });
         return !toFilter;
@@ -47,7 +46,7 @@ export const spicesFilter = (recipesArray) => {
     })
 }
 export const sourcesFilter = (recipesArray) => {
-    const excludedSources = ["Food Network", "winnerdinners.com"];
+    const excludedSources = ["Food Network", "winnerdinners.com", "pulsepledge.com"];
     return recipesArray.filter(recipe => {
         if (excludedSources.includes(recipe.source)) console.log("Filtered(sourcesFilter):", recipe);
         return !excludedSources.includes(recipe.source);

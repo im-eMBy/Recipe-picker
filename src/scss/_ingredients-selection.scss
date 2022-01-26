@@ -9,7 +9,11 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    overflow: hidden;
+    // overflow: hidden;
+    @media (max-width: 800px) {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 .ingredients-selection__list {
     width: 50%;
@@ -17,6 +21,10 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    @media (max-width: 800px) {
+        font-size: 0.8em;
+        width: 100%;
+    }
     h2 {
         text-align: center;
         color: #F5F5F5;
@@ -62,6 +70,9 @@
     align-items: center;
     justify-content: flex-end;
     gap: calc(50% - 300px);
+    @media (max-width: 800px) {
+        gap: calc(50% - 135px);
+    }
     button {
         @include glass;
         box-shadow: 10px 10px 35px 0px #000000;

@@ -14,6 +14,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    @media (max-width: 800px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .recipes-select__buttons-center {
         display: flex;
         align-items: center;
@@ -23,7 +27,7 @@
 }
 .recipes-select__button {
     border: none;
-    min-width: 150px;
+    width: 150px;
     padding: 15px 10px;
     display: flex;
     justify-content: center;

@@ -28,7 +28,7 @@ export const IsVeganSelection = () => {
     useEffect(() => {
         const overlayElement = reactDom.findDOMNode(document.querySelector(".is-vegan__overlay"));
         if (sWindow) {
-            overlayElement.style.left = `10%`;
+            overlayElement.style.left = `0%`;
             switch (isVegan) {
                 case "no": overlayElement.style.top = `0%`; break;
                 case "pescatarian": overlayElement.style.top = `25%`; break;
