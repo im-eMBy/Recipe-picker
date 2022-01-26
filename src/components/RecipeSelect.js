@@ -74,6 +74,6 @@ export const RecipeSelect = ({ nextPage }) => {
                 </button>
             </div>
         </div>
-        <button className="recipes-select__restart-button" onClick={() => restartState()}>Restart</button>
+        <button className="recipes-select__restart-button nav-button" onClick={() => restartState()}>Restart</button>
     </>
 }

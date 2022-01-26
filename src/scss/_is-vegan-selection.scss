@@ -11,35 +11,49 @@
     display: flex;
     border-radius: 40px;
     overflow: hidden;
-    .is-vegan__option {
-        background-color: transparent;
-        padding: 5px;
-        border: none;
-        cursor: pointer;
-        z-index: 1;
-        width: 25%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition-duration: 0.3s;
-        &:hover {
-            background-color: $color-white;
-            border-radius: 10px;
-        }
-    }
+    justify-content: center;
     .is-vegan__icon-container {
         margin: 5px 0;
         z-index: 1;
         width: 33%;
         max-width: 100px;
+        @media (max-width: 800px) {
+            width: 2.5em;
+            margin: 0 5px;
+        }
     }
-    .is-vegan__overlay {
-        background-color: #ff000044;
-        position: absolute;
-        border-radius: 10px;
-        width: 25%;
-        height: 100%;
-        transition-duration: 0.3s;
+    @media (max-width: 800px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.is-vegan__option {
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.3s;
+    @media (max-width: 800px) {
+        flex-direction: row;
+        width: 80%;
+        height: 3em;
+    }
+}
+.is-vegan__overlay {
+    background-color: #ff000044;
+    position: absolute;
+    border-radius: 10px;
+    width: 25%;
+    height: 100%;
+    transition-duration: 0.3s;
+    @media (max-width: 800px) {
+        width: 80%;
+        height: 25%;
     }
 }

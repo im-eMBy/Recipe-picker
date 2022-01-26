@@ -18,7 +18,6 @@
     }
     &__nav-button {
         @include glass;
-        min-width: 200px;
         box-shadow: 10px 10px 35px 0px #000000;
         border: none;
         border-radius: 15px;

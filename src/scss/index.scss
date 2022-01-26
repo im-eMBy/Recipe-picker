@@ -2,6 +2,9 @@
 
 html {
     font-size: 16px;
+//     @media(max-width: 800px) {
+//         font-size: 14px;
+//     }
 }
 body {
     overflow-y: scroll;
@@ -32,18 +35,24 @@ h2 {
         position: absolute;
         left: 0;
         top: 0;
-        background-image: url(../images/foodie1.jpg);
+        background-image: url(../images/foodie.jpg);
         background-size: cover;
         background-position: center;
-        // filter: blur(1px);
+        filter: blur(2px);
         z-index: -1;
-        @media (max-width: 600px) {
-            background-image: url(../images/foodie1m.jpg);
+        @media (max-width: 800px) {
+            background-image: url(../images/foodie-m.jpg);
         }
     }
 }
 .icon-container {
     img {
         width: 100%;
+    }
+}
+.nav-button {
+    width: 200px;
+    @media (max-width: 800px) {
+        width: 90px;
     }
 }

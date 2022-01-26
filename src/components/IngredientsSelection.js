@@ -82,8 +82,8 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
             </div>
         </div>
         <div className="ingredients-selection__nav-buttons">
-            <button onClick={() => restartState()}>Restart</button>
-            <button onClick={() => handleNextPage()}>Next</button>
+            <button className="nav-button" onClick={() => restartState()}>Restart</button>
+            <button className="nav-button" onClick={() => handleNextPage()}>Next</button>
         </div>
     </>
 }

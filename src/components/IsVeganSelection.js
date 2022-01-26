@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { actionCreators } from "../state/action-creators";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import "../scss/_is-vegan-selection.scss";
 
@@ -15,9 +15,30 @@ export const IsVeganSelection = () => {
     const { isVegan } = useSelector((state) => state.query);
     const dispatch = useDispatch();
     const { setIsVegan } = bindActionCreators(actionCreators, dispatch);
+    const [sWindow, setSWindow] = useState(window.matchMedia("(max-width: 800px)").matches);
 
+    useEffect(() => {   
+        const windowWatcher = window.matchMedia("(max-width: 800px)");
+        const change = (ev) => setSWindow(ev.matches);
+        windowWatcher.addEventListener("change", change);
+        return () => {
+            windowWatcher.removeEventListener("change", change);
+        }
+    }, [])
     useEffect(() => {
         const overlayElement = reactDom.findDOMNode(document.querySelector(".is-vegan__overlay"));
+        if (sWindow) {
+            overlayElement.style.left = `10%`;
+            switch (isVegan) {
+                case "no": overlayElement.style.top = `0%`; break;
+                case "pescatarian": overlayElement.style.top = `25%`; break;
+                case "vegetarian": overlayElement.style.top = `50%`; break;
+                case "vegan": overlayElement.style.top = `75%`; break;
+                default: overlayElement.style.top = `0%`; break;
+            }
+            return;
+        }
+        overlayElement.style.top = `0%`;
         switch (isVegan) {
             case "no": overlayElement.style.left = `0%`; break;
             case "pescatarian": overlayElement.style.left = `25%`; break;
@@ -25,8 +46,8 @@ export const IsVeganSelection = () => {
             case "vegan": overlayElement.style.left = `75%`; break;
             default: overlayElement.style.left = `0%`; break;
         }
-    }, [isVegan]);
-    
+    }, [isVegan, sWindow]);
+
     const handleClick = (ev) => {
         setIsVegan(ev.currentTarget.value);
     }
