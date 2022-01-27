@@ -2,7 +2,7 @@
 
 import { useSelector } from 'react-redux';
 
-import { spicesFilter, labelFilter } from "../utilis/recipes-array-functions/filters";
+import { spicesFilter, labelFilter } from "../utilis/filters";
 
 export const RecipesList = () => {
     const { recipes } = useSelector((state) => state.app);

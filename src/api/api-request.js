@@ -1,4 +1,4 @@
-import { dessertFilter, sourcesFilter, spicesFilter } from "../utilis/recipes-array-functions/filters";
+import { dessertFilter, sourcesFilter, spicesFilter } from "../utilis/filters";
 
 const singleGetFetch = (url) => {
     return new Promise(res => {

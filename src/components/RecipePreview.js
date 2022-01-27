@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { MacronutrientsInfo } from "./MacronutrientsInfo";
+import { Loading } from "./Loading";
 
 import "../scss/_recipe-preview.scss";
 
@@ -9,9 +10,11 @@ import timeIcon from "../images/icons/time.png";
 
 export const RecipePreview = ({ recipeData }) => {
     const [showAllRecipes, setShowAllRecipes] = useState(false);
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     useEffect(() => {
         setShowAllRecipes(false);
+        setIsImageLoaded(false);
     }, [recipeData]);
 
     const portions = recipeData.yield;
@@ -55,20 +58,24 @@ export const RecipePreview = ({ recipeData }) => {
     return <div className="recipe-preview">
         <div className="recipe-preview__column recipe-preview__column--first">
             <div className="recipe-preview__image-container">
-                <img src={recipeData.images.REGULAR !== undefined ? recipeData.images.REGULAR.url : recipeData.image}></img>
+                {isImageLoaded ? null : <Loading/>}
+                <img src={recipeData.images.REGULAR !== undefined ? recipeData.images.REGULAR.url : recipeData.image} 
+                style={isImageLoaded ? null : {visibility: "hidden"}}
+                onLoad={() => setIsImageLoaded(true)} 
+                alt="Recipe preview" />
             </div>
             <p className="recipe-preview__title">{recipeData.label}</p>
             <p>Source: {recipeData.source}</p>
             <div className="recipe-preview__time-and-portions">
                 {prepTime > 0 ? <div className="recipe-preview__time">
                     <div className="icon-container">
-                        <img src={timeIcon} />
+                        <img src={timeIcon} alt="Preparation time icon" />
                     </div>
                     <p>{prepTime} minutes</p>
                 </div> : null}
                 <div className="recipe-preview__portions">
                     <div className="icon-container">
-                        <img src={portionIcon} />
+                        <img src={portionIcon} alt="Portion icon" />
                     </div>
                     <p>{portions} {portions > 1 ? "portions" : "portion"}</p>
                 </div>

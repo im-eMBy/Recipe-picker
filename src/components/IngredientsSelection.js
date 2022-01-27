@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 
-import { extractIngredients, extractIngredientsAlternative } from "../utilis/recipes-array-functions/ingredients";
-import { ingredientFilter, ingredientFilterAlternative } from "../utilis/recipes-array-functions/filters";
+import { extractIngredients, extractIngredientsAlternative } from "../utilis/ingredients";
+import { ingredientFilter, ingredientFilterAlternative } from "../utilis/filters";
 
 import "../scss/_ingredients-selection.scss";
 
