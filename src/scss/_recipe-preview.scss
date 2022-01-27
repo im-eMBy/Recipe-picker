@@ -22,29 +22,39 @@
 .recipe-preview__column {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     &--first {
         align-items: center;
-        h2 {
+        p {
             text-align: center;
+        }
+        .recipe-preview__title {
+            font-size: 1.2em;
+            min-height: 2.4em;
+            @media(max-width: 800px) {
+                min-height: 0;
+            }
         }
     }
     &--second {
+        align-items: center;
         ul {
+            width: 100%;
             display: flex;
             flex-direction: column;
+            align-items: flex-end;
             gap: 1px;
         }
     }
     &--third {
         align-items: center;
         ul {
-            width: 80%;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
             gap: 1px;
         }
+        align-items: center;
     }
 }
 .recipe-preview__image-container {
@@ -64,7 +74,8 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.recipe-preview__time, .recipe-preview__portions {
+.recipe-preview__time,
+.recipe-preview__portions {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,5 +104,16 @@
     &--protein {
         background-color: #e6000088;
         transition-duration: 0.3s;
+    }
+}
+.recipes-preview__show-more-button {
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+    transition-duration: 0.3s;
+    border-radius: 15px;
+    padding: 10px 20px;
+    &:hover {
+        background-color: $color-blue;
     }
 }

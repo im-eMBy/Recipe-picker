@@ -43,6 +43,9 @@
     .icon-container {
         width: 25px;
     }
+    @media (max-width: 800px) {
+        width: 120px;
+    }
 }
 .recipes-select__restart-button {
     @include glass;

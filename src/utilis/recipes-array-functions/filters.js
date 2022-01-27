@@ -17,6 +17,10 @@ export const ingredientFilterAlternative = (recipesArray, ingredient, includesEx
         let toFilter = includesExcludes;
         recipe.ingredients.forEach(ingr => {
             if (ingr.food === null) return;
+            if (ingr.food.toLowerCase().includes(ingredient.ingredient) && ingr.foodCategory === null) {
+                toFilter = !toFilter;
+                return
+            }
             if (ingr.food.toLowerCase().includes(ingredient.ingredient) && ingr.foodCategory.toLowerCase() === ingredient.category) {
                 toFilter = !toFilter;
             }
