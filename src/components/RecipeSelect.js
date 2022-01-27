@@ -12,8 +12,9 @@ import previousIcon from "../images/icons/previous.png";
 import nextIcon from "../images/icons/next.png";
 
 import "../scss/_recipe-select.scss";
+import { NoRecipesLeft } from "./NoRecipesLeft";
 
-export const RecipeSelect = ({ nextPage }) => {
+export const RecipeSelect = () => {
     const dispatch = useDispatch();
     const { restartState, setRecipes } = bindActionCreators(actionCreators, dispatch);
     const { recipes } = useSelector((state) => state.app);
@@ -87,7 +88,10 @@ export const RecipeSelect = ({ nextPage }) => {
             </button>}
         </div>
     }
-
+    if (recipes.length === 0) return <>
+        <NoRecipesLeft />
+        <button className="recipes-select__restart-button nav-button" onClick={() => restartState()}>Restart</button>
+    </>
     return <>
         <div className="recipes-select__outer-container">
             <h1>Choose your recipe</h1>

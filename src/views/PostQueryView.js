@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from "react";
 
-import { RecipesList } from "../components/RecipesList";
 import { IngredientsSelection } from "../components/IngredientsSelection";
 import { RecipeSelect } from "../components/RecipeSelect";
 import { Loading } from "../components/Loading";
@@ -22,7 +21,7 @@ export const PostQueryView = () => {
         setCurrentSubpage("ingredients - meats");
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const pages = ["ingredients - meats", "ingredients - vegetables", "ingredients - grains", "ingredients - dairy", "single recipe select", "recipes list"];
+    const pages = ["ingredients - meats", "ingredients - vegetables", "ingredients - grains", "ingredients - dairy", "single recipe select"];
 
     const handleNextPage = () => {
         const next = pages[pages.indexOf(currentSubpage) + 1];
@@ -46,11 +45,9 @@ export const PostQueryView = () => {
             case "ingredients - dairy":
                 return <IngredientsSelection nextPage={handleNextPage} ingredientsTypes={["dairy", "cheese"]} />
             case "single recipe select":
-                return <RecipeSelect nextPage={handleNextPage} />
-            case "recipes list":
-                return <RecipesList />
+                return <RecipeSelect />
             default:
-                return null;
+                return <RecipeSelect />;
         }
     }
 

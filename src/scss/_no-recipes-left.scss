@@ -1,0 +1,9 @@
+@import "./utilis/mixins";
+
+.no-recipes-left {
+    @include glass;
+    @include outer-container;
+    span {
+        font-size: 1.2em;
+    }
+}

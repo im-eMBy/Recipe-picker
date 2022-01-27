@@ -47,10 +47,8 @@ export const PreQueryView = () => {
             case "cuisine":
                 return <CuisineType />
             default:
-                return <>
-                    <IsVeganSelection />
-                    <AllergiesSelection />
-                </>
+                return <IsVeganSelection />
+
         }
     }
 

@@ -6,9 +6,9 @@ export const Footer = () => {
         <div className="footer__inner-container">
             <p>Created by <a href="https://github.com/im-eMBy">Michał Bieńko</a></p>
             <p>Icons made by&nbsp;
-                <a href="https://www.flaticon.com/authors/freepik" title="monkik">freepik</a>,&nbsp;
-                <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from&nbsp;
-                <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                <a href="https://www.flaticon.com/authors/freepik" title="monkik" target="_blank" rel="noreferrer">freepik</a>,&nbsp;
+                <a href="https://www.flaticon.com/authors/monkik" title="monkik" target="_blank" rel="noreferrer">monkik</a> from&nbsp;
+                <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noreferrer">www.flaticon.com</a>
             </p>
             <div id="edamam-badge"></div>
         </div>

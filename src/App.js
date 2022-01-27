@@ -19,9 +19,7 @@ const App = () => {
       case "postQuery":
         return <PostQueryView />
       default:
-        return <>
-          {/* <PreQueryView /> */}
-        </>
+        return <WelcomeView />
     }
   }
   return <>

@@ -92,6 +92,7 @@ export const generateURL = (queryState) => {
         url += `${cuisineCall}${param}`;
     })
     url += `&q=${queryState.keyWords}`;
+    //line below -> API doesn't accept empty query call without any additional parameters
     if (url === API_URL + appIdCall + apiKeyCall + '&q=') url += maxCalorieCall;
     return url;
 }
