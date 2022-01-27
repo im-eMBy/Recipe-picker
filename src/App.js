@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 
+import { WelcomeView } from "./views/Welcome";
 import { PreQueryView } from "./views/PreQueryView";
 import { PostQueryView } from "./views/PostQueryView";
 import { Footer } from "./components/Footer";
@@ -7,10 +8,12 @@ import { Footer } from "./components/Footer";
 import "./scss/index.scss";
 
 const App = () => {
-  const { currentPage, currentSubpage } = useSelector((state) => state.app);
+  const { currentPage } = useSelector((state) => state.app);
 
   const getContent = () => {
     switch (currentPage) {
+      case "welcome":
+        return <WelcomeView />
       case "preQuery":
         return <PreQueryView />
       case "postQuery":

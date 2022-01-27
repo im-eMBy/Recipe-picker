@@ -11,12 +11,12 @@
         color: #9EB5D1;
     }
     &__inner-container {
-        // @include glass;
         font-size: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 5px;
         width: 80%;
         border-radius: 15px 15px 0 0;
     }

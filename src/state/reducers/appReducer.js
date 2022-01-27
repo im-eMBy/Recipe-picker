@@ -1,5 +1,5 @@
 const initialState = {
-    currentPage: "preQuery",
+    currentPage: "welcome",
     currentSubpage: "is vegan",
     recipes: null,
 }
@@ -10,7 +10,7 @@ export const appReducer = (
 ) => {
     switch (action.type) {
         case "restartState":
-            return { ...initialState, currentPage:"preQuery"}
+            return {...initialState, currentPage:"preQuery"}
         case "setRecipes":
             return { ...state, recipes: action.data }
         case "setCurrentPage":

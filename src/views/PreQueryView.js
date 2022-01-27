@@ -21,6 +21,10 @@ export const PreQueryView = () => {
     const pages = ["is vegan", "allergies", "dish type", "cuisine"];
 
     const handlePrevPage = () => {
+        if(currentSubpage === "is vegan") {
+            setCurrentPage("welcome");
+            return;
+        }
         setCurrentSubpage(pages[pages.indexOf(currentSubpage) - 1]);
     }
     const handleNextPage = () => {
@@ -52,8 +56,8 @@ export const PreQueryView = () => {
 
     return <div className="query-creator">
         {getContent()}
-        <div className="query-creator__nav-buttons" style={currentSubpage === "is vegan" ? { justifyContent: "flex-end" } : null}>
-            <button className="query-creator__nav-button nav-button" onClick={() => handlePrevPage()} style={currentSubpage === "is vegan" ? {display: "none"} : null}>Previous</button>
+        <div className="query-creator__nav-buttons">
+            <button className="query-creator__nav-button nav-button" onClick={() => handlePrevPage()}>Previous</button>
             <button className="query-creator__nav-button nav-button" onClick={() => restartState()} style={currentSubpage === "is vegan" ? {display: "none"} : null}>Restart</button>
             <button className="query-creator__nav-button nav-button" onClick={() => handleNextPage()}>Next</button>
         </div>

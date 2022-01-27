@@ -28,6 +28,7 @@ h2 {
 .app {
     position: relative;
     background-color: #33333388;
+    min-height: 100vh;
     &::after {
         content: "";
         width: 100%;

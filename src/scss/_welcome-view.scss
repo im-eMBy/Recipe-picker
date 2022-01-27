@@ -1,0 +1,31 @@
+@import "./utilis/mixins";
+@import "./utilis/colors";
+
+.welcome-view {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.welcome-view__container {
+    @include glass;
+    @include outer-container;
+    justify-content: space-evenly;
+    font-size: 1.2em;
+}
+.welcome-view__start-button {
+    border: none;
+    border-radius: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: $color-white;
+    &:hover {
+        background-color: $color-green;
+    }
+    @media (max-width: 800px) {
+        width: 200px;
+    }
+}
