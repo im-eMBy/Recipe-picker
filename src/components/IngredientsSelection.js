@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 
-import { extractIngredients, extractIngredientsAlternative } from "../utilis/ingredients";
-import { ingredientFilter, ingredientFilterAlternative } from "../utilis/filters";
+import { extractIngredients } from "../utilis/ingredients";
+import { ingredientFilter } from "../utilis/filters";
 
 import "../scss/_ingredients-selection.scss";
 
@@ -13,11 +13,11 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     const dispatch = useDispatch();
     const { setRecipes, restartState } = bindActionCreators(actionCreators, dispatch);
     const { recipes } = useSelector((state) => state.app);
-    const [ingredients, setIngredients] = useState(extractIngredientsAlternative(recipes, ingredientsTypes, 20));
+    const [ingredients, setIngredients] = useState(extractIngredients(recipes, ingredientsTypes, 20));
     const [ingredientsExcluded, setIngredientsExcluded] = useState([]);
 
     useEffect(() => {
-        setIngredients(extractIngredientsAlternative(recipes, ingredientsTypes, 20));
+        setIngredients(extractIngredients(recipes, ingredientsTypes, 20));
         setIngredientsExcluded([]);
     }, [ingredientsTypes, recipes]);
     useEffect(() => {
@@ -37,7 +37,7 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     const handleNextPage = () => {
         let filteredRecipes = recipes;
         ingredientsExcluded.forEach(ingredient => {
-            filteredRecipes = ingredientFilterAlternative(filteredRecipes, ingredient);
+            filteredRecipes = ingredientFilter(filteredRecipes, ingredient);
         })
         setRecipes(filteredRecipes);
         nextPage();

@@ -6,17 +6,6 @@ export const ingredientFilter = (recipesArray, ingredient, includesExcludes = fa
         let toFilter = includesExcludes;
         recipe.ingredients.forEach(ingr => {
             if (ingr.food === null) return;
-            if (ingr.food.toLowerCase() === ingredient.ingredient) toFilter = !toFilter;
-        });
-        return !toFilter;
-    })
-}
-//more conservative version
-export const ingredientFilterAlternative = (recipesArray, ingredient, includesExcludes = false) => {
-    return recipesArray.filter(recipe => {
-        let toFilter = includesExcludes;
-        recipe.ingredients.forEach(ingr => {
-            if (ingr.food === null) return;
             if (ingr.food.toLowerCase().includes(ingredient.ingredient) && ingr.foodCategory === null) {
                 toFilter = !toFilter;
                 return
@@ -45,14 +34,14 @@ export const spicesFilter = (recipesArray) => {
                 && !ingr.food.includes("juice")
                 && !ingr.food.includes("garlic")) toFilter = false;
         });
-        if (toFilter) console.log("Filtered(spicesFilter):", recipe);
+        // if (toFilter) console.log("Filtered(spicesFilter):", recipe);
         return !toFilter;
     })
 }
 export const sourcesFilter = (recipesArray) => {
     const excludedSources = ["Food Network", "winnerdinners.com", "pulsepledge.com"];
     return recipesArray.filter(recipe => {
-        if (excludedSources.includes(recipe.source)) console.log("Filtered(sourcesFilter):", recipe);
+        // if (excludedSources.includes(recipe.source)) console.log("Filtered(sourcesFilter):", recipe);
         return !excludedSources.includes(recipe.source);
     })
 }
@@ -66,7 +55,7 @@ export const dessertFilter = (recipesArray) => {
             if (ingr.foodCategory === "vegetables" && secVegetable === true) toFilter = true;
             if (ingr.foodCategory === "vegetables" && secVegetable === false) secVegetable = true;
         })
-        if (toFilter) console.log("Filtered(dessertFilter):", recipe)
+        // if (toFilter) console.log("Filtered(dessertFilter):", recipe)
         return !toFilter;
     })
 }

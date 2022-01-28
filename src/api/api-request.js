@@ -16,21 +16,17 @@ const singleGetFetch = (url) => {
 
 }
 export async function apiGetRecipies(url, callback) {
-    let firstRes = null;
-    let secondRes = null;
-    let thirdRes = null;
-
-    firstRes = await singleGetFetch(url);
-    console.log(firstRes);
+    const firstRes = await singleGetFetch(url);
+    // console.log(firstRes);
     let recipesList = [...firstRes.hits.map(hit => hit.recipe)];
     if (firstRes.count > 40) {
-        secondRes = await singleGetFetch(url);
-        console.log(secondRes);
+        const secondRes = await singleGetFetch(url);
+        // console.log(secondRes);
         recipesList = [...recipesList, ...secondRes.hits.map(hit => hit.recipe)];
     }
     if (firstRes.count > 100) {
-        thirdRes = await singleGetFetch(url);
-        console.log(thirdRes);
+       const thirdRes = await singleGetFetch(url);
+        // console.log(thirdRes);
         recipesList = [...recipesList, ...thirdRes.hits.map(hit => hit.recipe)];
     }
 

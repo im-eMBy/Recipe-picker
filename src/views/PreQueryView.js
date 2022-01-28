@@ -52,12 +52,12 @@ export const PreQueryView = () => {
         }
     }
 
-    return <div className="query-creator">
+    return <div className="pre-query-view">
         {getContent()}
-        <div className="query-creator__nav-buttons">
-            <button className="query-creator__nav-button nav-button" onClick={() => handlePrevPage()}>Previous</button>
-            <button className="query-creator__nav-button nav-button" onClick={() => restartState()} style={currentSubpage === "is vegan" ? {display: "none"} : null}>Restart</button>
-            <button className="query-creator__nav-button nav-button" onClick={() => handleNextPage()}>Next</button>
+        <div className="pre-query-view__nav-buttons">
+            <button className="pre-query-view__nav-button nav-button" onClick={() => handlePrevPage()}>Previous</button>
+            <button className="pre-query-view__nav-button nav-button" onClick={() => restartState()} style={currentSubpage === "is vegan" ? {display: "none"} : null}>Restart</button>
+            <button className="pre-query-view__nav-button nav-button" onClick={() => handleNextPage()}>Next</button>
         </div>
     </div>
 }
