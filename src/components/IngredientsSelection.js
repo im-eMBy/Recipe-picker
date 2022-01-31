@@ -17,14 +17,12 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
     const [ingredientsExcluded, setIngredientsExcluded] = useState([]);
 
     useEffect(() => {
-        setIngredients(extractIngredients(recipes, ingredientsTypes, 20));
+        const ingr = extractIngredients(recipes, ingredientsTypes, 20);
+        console.log(ingr);
+        if(ingr.length < 6) {nextPage(); return};
+        setIngredients(ingr);
         setIngredientsExcluded([]);
-    }, [ingredientsTypes, recipes]);
-    useEffect(() => {
-        if (ingredients.length + ingredientsExcluded.length < 5) {
-            nextPage();
-        }
-    }, [ingredients, ingredientsExcluded, nextPage]);
+    }, [ingredientsTypes, recipes, nextPage]);
 
     const handleIngredientExclusion = (ingredient) => {
         setIngredientsExcluded([...ingredientsExcluded, ingredient]);

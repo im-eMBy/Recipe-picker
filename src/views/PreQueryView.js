@@ -31,6 +31,7 @@ export const PreQueryView = () => {
         if (currentSubpage === "cuisine") {
             apiGetRecipies(generateURL(queryState), setRecipes);
             setCurrentPage("postQuery");
+            setCurrentSubpage("ingredients - meats");
             return;
         }
         setCurrentSubpage(pages[pages.indexOf(currentSubpage) + 1]);

@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { actionCreators } from '../state/action-creators';
 import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
-import { useEffect } from "react";
 
 import { IngredientsSelection } from "../components/IngredientsSelection";
 import { RecipeSelect } from "../components/RecipeSelect";
@@ -13,13 +12,7 @@ import "../scss/_post-query-view.scss";
 export const PostQueryView = () => {
     const dispatch = useDispatch();
     const { setCurrentSubpage } = bindActionCreators(actionCreators, dispatch);
-    const queryState = useSelector((state) => state.query);
     const { recipes, currentSubpage } = useSelector((state) => state.app);
-
-    useEffect(() => {
-        if (queryState.isVegan !== "no") { setCurrentSubpage("ingredients - vegetables"); return }
-        setCurrentSubpage("ingredients - meats");
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const pages = ["ingredients - meats", "ingredients - vegetables", "ingredients - grains", "ingredients - dairy", "single recipe select"];
 
@@ -31,7 +24,7 @@ export const PostQueryView = () => {
     const getContent = () => {
         if (recipes === null) return <>
             <h1>Loading</h1>
-            <div style={{position: "relative", width: "100px", height: "50px"}}>
+            <div style={{ position: "relative", width: "100px", height: "50px" }}>
                 <Loading />
             </div>
         </>
