@@ -4,7 +4,7 @@
 
 ## General:
 
-The application uses the Edamam API and allows you to find random recipes that meet, specified by the user, criteria such as:
+The application uses the Edamam API and allows to find random recipes that meet, specified by the user, criteria such as:
 - vegan / vegetarian diet
 - food allergies
 - type of food
