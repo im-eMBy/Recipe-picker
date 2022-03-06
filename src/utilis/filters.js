@@ -1,9 +1,9 @@
 //function that filters recipes, that includes specified ingredient, when 3rd parameter is:
 //false - returns new array with all recipes without specified ingredient
 //true - returns array of all recipes, that includes specified ingredient
-export const ingredientFilter = (recipesArray, ingredient, includesExcludes = false) => {
+export const ingredientFilter = (recipesArray, ingredient, toIncludeOrExclude = false) => {
     return recipesArray.filter(recipe => {
-        let toFilter = includesExcludes;
+        let toFilter = toIncludeOrExclude;
         recipe.ingredients.forEach(ingr => {
             if (ingr.food === null) return;
             if (ingr.food.toLowerCase().includes(ingredient.ingredient) && ingr.foodCategory === null) {

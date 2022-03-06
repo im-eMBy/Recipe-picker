@@ -12,8 +12,6 @@ export const MacronutrientsInfo = ({ recipeData }) => {
     const proteinPercent = (protein * 400 / energy).toFixed(0);
     const fatPercent = (fat * 900 / energy).toFixed(0);
     const carbsPercent = 100 - proteinPercent - fatPercent;
-    
-
 
     return <>
         <ul>
@@ -32,11 +30,9 @@ export const MacronutrientsInfo = ({ recipeData }) => {
             <li>Protein - {proteinPercent}%</li>
         </ul>
         <div className="recipe-preview__macro-graph">
-            <div className="recipe-preview__macro-graph--carbs">
-                <span></span>
-            </div>
+            <div className="recipe-preview__macro-graph--carbs"></div>
             <div className="recipe-preview__macro-graph--fat" style={{ width: `${fatPercent}%` }}></div>
-            <div className="recipe-preview__macro-graph--protein" style={{ width:`${proteinPercent}%` }}></div>
+            <div className="recipe-preview__macro-graph--protein" style={{ width: `${proteinPercent}%` }}></div>
         </div>
     </>
 }

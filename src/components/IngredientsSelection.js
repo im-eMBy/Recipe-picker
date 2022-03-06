@@ -1,28 +1,27 @@
 import { useSelector } from "react-redux";
 import { actionCreators } from '../state/action-creators';
-import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
-
+import { NavButtons } from "./NavButtons";
 import { extractIngredients } from "../utilis/ingredients";
 import { ingredientFilter } from "../utilis/filters";
 
 import "../scss/_ingredients-selection.scss";
 
-export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
+export const IngredientsSelection = ({ ingredientsTypes }) => {
     const dispatch = useDispatch();
-    const { setRecipes, restartState } = bindActionCreators(actionCreators, dispatch);
+    const { setRecipes, nextPage } = actionCreators;
     const { recipes } = useSelector((state) => state.app);
+
     const [ingredients, setIngredients] = useState(extractIngredients(recipes, ingredientsTypes, 20));
     const [ingredientsExcluded, setIngredientsExcluded] = useState([]);
 
     useEffect(() => {
         const ingr = extractIngredients(recipes, ingredientsTypes, 20);
-        console.log(ingr);
-        if(ingr.length < 6) {nextPage(); return};
+        if(ingr.length < 6) {dispatch(nextPage()); return};
         setIngredients(ingr);
         setIngredientsExcluded([]);
-    }, [ingredientsTypes, recipes, nextPage]);
+    }, [ingredientsTypes, recipes, nextPage, dispatch]);
 
     const handleIngredientExclusion = (ingredient) => {
         setIngredientsExcluded([...ingredientsExcluded, ingredient]);
@@ -37,9 +36,9 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
         ingredientsExcluded.forEach(ingredient => {
             filteredRecipes = ingredientFilter(filteredRecipes, ingredient);
         })
-        setRecipes(filteredRecipes);
-        nextPage();
+        dispatch(setRecipes(filteredRecipes));
     }
+
     const getIngredientsList = () => {
         return ingredients.map((el, i) => {
             const percentOfRecipes = (el.amount * 100 / recipes.length).toFixed(1);
@@ -79,9 +78,6 @@ export const IngredientsSelection = ({ nextPage, ingredientsTypes }) => {
                 </div>
             </div>
         </div>
-        <div className="ingredients-selection__nav-buttons">
-            <button className="nav-button" onClick={() => restartState()}>Restart</button>
-            <button className="nav-button" onClick={() => handleNextPage()}>Next</button>
-        </div>
+        <NavButtons onNext={handleNextPage} />
     </>
 }

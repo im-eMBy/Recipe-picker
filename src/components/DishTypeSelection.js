@@ -4,6 +4,7 @@ import { actionCreators } from "../state/action-creators";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { NavButtons } from "./NavButtons";
 
 import "../scss/_dish-type-selection.scss";
 
@@ -82,55 +83,58 @@ export const DishTypeSelection = () => {
         setDishType(ev.currentTarget.value);
     }
 
-    return <div className="dish-type__outer-container">
-        <h1>Choose dish type</h1>
-        <div className="dish-type__inner-container">
-            <button className="dish-type__option" value="not specified" onClick={(ev) => handleClick(ev)}>
-                <span>Not specified</span>
-            </button>
-            <button className="dish-type__option" value="main course" onClick={(ev) => handleClick(ev)}>
-                <span>Main course</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={mainCourseIcon} alt="" />
-                </div>
-            </button>
-            <button className="dish-type__option" value="soup" onClick={(ev) => handleClick(ev)}>
-                <span>Soup</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={soupIcon} alt="" />
-                </div>
-            </button>
-            <button className="dish-type__option" value="starter" onClick={(ev) => handleClick(ev)}>
-                <span>Starter</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={starterIcon} alt="" />
-                </div>
-            </button>
-            <button className="dish-type__option" value="salad" onClick={(ev) => handleClick(ev)}>
-                <span>Salad</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={saladIcon} alt="" />
-                </div>
-            </button>
-            <button className="dish-type__option" value="dessert" onClick={(ev) => handleClick(ev)}>
-                <span>Dessert</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={dessertIcon} alt="" />
-                </div>
-            </button>
-            <button className="dish-type__option" value="drinks" onClick={(ev) => handleClick(ev)}>
-                <span>Drinks</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={drinksIcon} alt="" />
-                </div>
-            </button>
-            <button className="dish-type__option" value="condiments" onClick={(ev) => handleClick(ev)}>
-                <span>Condiments and Sauces</span>
-                <div className="icon-container dish-type__icon-container">
-                    <img src={condimentsIcon} alt="" />
-                </div>
-            </button>
-            <div className="dish-type__overlay"></div>
+    return <>
+        <div className="dish-type__outer-container">
+            <h1>Choose dish type</h1>
+            <div className="dish-type__inner-container">
+                <button className="dish-type__option" value="not specified" onClick={(ev) => handleClick(ev)}>
+                    <span>Not specified</span>
+                </button>
+                <button className="dish-type__option" value="main course" onClick={(ev) => handleClick(ev)}>
+                    <span>Main course</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={mainCourseIcon} alt="" />
+                    </div>
+                </button>
+                <button className="dish-type__option" value="soup" onClick={(ev) => handleClick(ev)}>
+                    <span>Soup</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={soupIcon} alt="" />
+                    </div>
+                </button>
+                <button className="dish-type__option" value="starter" onClick={(ev) => handleClick(ev)}>
+                    <span>Starter</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={starterIcon} alt="" />
+                    </div>
+                </button>
+                <button className="dish-type__option" value="salad" onClick={(ev) => handleClick(ev)}>
+                    <span>Salad</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={saladIcon} alt="" />
+                    </div>
+                </button>
+                <button className="dish-type__option" value="dessert" onClick={(ev) => handleClick(ev)}>
+                    <span>Dessert</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={dessertIcon} alt="" />
+                    </div>
+                </button>
+                <button className="dish-type__option" value="drinks" onClick={(ev) => handleClick(ev)}>
+                    <span>Drinks</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={drinksIcon} alt="" />
+                    </div>
+                </button>
+                <button className="dish-type__option" value="condiments" onClick={(ev) => handleClick(ev)}>
+                    <span>Condiments and Sauces</span>
+                    <div className="icon-container dish-type__icon-container">
+                        <img src={condimentsIcon} alt="" />
+                    </div>
+                </button>
+                <div className="dish-type__overlay"></div>
+            </div>
         </div>
-    </div>
+        <NavButtons />
+    </>
 }

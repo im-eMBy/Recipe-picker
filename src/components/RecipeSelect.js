@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 
 import { RecipePreview } from "./RecipePreview";
+import { NoRecipesLeft } from "./NoRecipesLeft";
+import { NavButtons } from "./NavButtons";
 
 import websiteIcon from "../images/icons/website.png";
 import deleteIcon from "../images/icons/delete.png";
@@ -12,11 +14,10 @@ import previousIcon from "../images/icons/previous.png";
 import nextIcon from "../images/icons/next.png";
 
 import "../scss/_recipe-select.scss";
-import { NoRecipesLeft } from "./NoRecipesLeft";
 
 export const RecipeSelect = () => {
     const dispatch = useDispatch();
-    const { restartState, setRecipes } = bindActionCreators(actionCreators, dispatch);
+    const { setRecipes } = bindActionCreators(actionCreators, dispatch);
     const { recipes } = useSelector((state) => state.app);
     const [currentRecipe, setCurrentRecipe] = useState(0);
     const [sWindow, setSWindow] = useState(window.matchMedia("(max-width: 800px)").matches);
@@ -54,43 +55,43 @@ export const RecipeSelect = () => {
 
     const getButtons = () => {
         return <div className="recipes-select__buttons-container">
-            <button className="recipes-select__button" onClick={() => handlePreviousRecipe()}>
+            <button className="recipes-select__button" onClick={handlePreviousRecipe}>
                 <div className="icon-container">
-                    <img src={previousIcon} />
+                    <img src={previousIcon} alt="Previous recipe" />
                 </div>
                 <span>Previous</span>
             </button>
-            {!sWindow ? null : <button className="recipes-select__button" onClick={() => handleNextRecipe()}>
+            {!sWindow ? null : <button className="recipes-select__button" onClick={handleNextRecipe}>
                 <span>Next</span>
                 <div className="icon-container">
-                    <img src={nextIcon} />
+                    <img src={nextIcon} alt="Next recipe" />
                 </div>
             </button>}
             <div className="recipes-select__buttons-center">
-                <button className="recipes-select__button" onClick={() => handleRecipeRejection()}>
+                <button className="recipes-select__button" onClick={handleRecipeRejection}>
                     <span>Reject</span>
                     <div className="icon-container">
-                        <img src={deleteIcon} />
+                        <img src={deleteIcon} alt="Reject recipe" />
                     </div>
                 </button>
-                <button className="recipes-select__button" onClick={() => handleShowRecipe()}>
+                <button className="recipes-select__button" onClick={handleShowRecipe}>
                     <span>Check</span>
                     <div className="icon-container">
-                        <img src={websiteIcon} />
+                        <img src={websiteIcon} alt="Check recipe" />
                     </div>
                 </button>
             </div>
-            {sWindow ? null : <button className="recipes-select__button" onClick={() => handleNextRecipe()}>
+            {sWindow ? null : <button className="recipes-select__button" onClick={handleNextRecipe}>
                 <span>Next</span>
                 <div className="icon-container">
-                    <img src={nextIcon} />
+                    <img src={nextIcon} alt="Next recipe" />
                 </div>
             </button>}
         </div>
     }
     if (recipes.length === 0) return <>
         <NoRecipesLeft />
-        <button className="recipes-select__restart-button nav-button" onClick={() => restartState()}>Restart</button>
+        <NavButtons />
     </>
     return <>
         <div className="recipes-select__outer-container">
@@ -99,6 +100,6 @@ export const RecipeSelect = () => {
             <RecipePreview recipeData={recipes[currentRecipe]} />
             {sWindow ? null : getButtons()}
         </div>
-        <button className="recipes-select__restart-button nav-button" onClick={() => restartState()}>Restart</button>
+        <NavButtons />
     </>
 }

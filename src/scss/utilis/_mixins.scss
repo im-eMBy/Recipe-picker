@@ -1,7 +1,7 @@
 @mixin glass {
     backdrop-filter: blur(4px) saturate(140%);
     -webkit-backdrop-filter: blur(4px) saturate(140%);
-    background-color: #ffffff33;
+    background-color: #ffffff22;
 }
 @mixin outer-container {
     width: 80%;

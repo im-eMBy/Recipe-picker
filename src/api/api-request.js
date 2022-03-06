@@ -15,7 +15,7 @@ const singleGetFetch = (url) => {
     })
 
 }
-export async function apiGetRecipies(url, callback) {
+export async function apiGetRecipes(url, callback) {
     const firstRes = await singleGetFetch(url);
     // console.log(firstRes);
     let recipesList = [...firstRes.hits.map(hit => hit.recipe)];

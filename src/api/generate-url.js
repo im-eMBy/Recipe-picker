@@ -15,17 +15,6 @@ const saladCall = '&dishType=Salad';
 const drinksCall = '&dishType=Drinks';
 const condimentsCall = '&dishType=Condiments%20and%20sauces';
 
-const noPeanutsCall = '&health=peanut-free';
-const noTreenutsCall = '&health=tree-nut-free';
-const noWheatCall = '&health=wheat-free';
-const noSoyCall = '&health=soy-free';
-const noDairyCall = '&health=dairy-free';
-const noEggsCall = '&health=egg-free';
-const noFishCall = '&health=fish-free';
-const noCrustaceansCall = '&health=crustacean-free';
-
-const cuisineCall = '&cuisineType=';
-
 const maxCalorieCall = '&nutrients%5BENERC_KCAL%5D=0-1000';
 const minProteinCall = '&nutrients%5BPROCNT%5D=10%2B';
 
@@ -47,14 +36,6 @@ export const generateURL = (queryState) => {
             //do nothing
             break;
     }
-    if (queryState.allergies.treenuts) url += noTreenutsCall;
-    if (queryState.allergies.peanuts) url += noPeanutsCall;
-    if (queryState.allergies.wheat) url += noWheatCall;
-    if (queryState.allergies.soy) url += noSoyCall;
-    if (queryState.allergies.dairy) url += noDairyCall;
-    if (queryState.allergies.eggs) url += noEggsCall;
-    if (queryState.allergies.fish) url += noFishCall;
-    if (queryState.allergies.crustaceans) url += noCrustaceansCall;
     switch (queryState.dishType) {
         case "main course":
             url += mainCourseCall;
@@ -84,12 +65,15 @@ export const generateURL = (queryState) => {
             //do nothing
             break;
     }
+    queryState.allergies.forEach(allergy => {
+        url += `&health=${allergy}-free`;
+    })
     queryState.cuisineType.forEach(cuisine => {
         let param = cuisine;
         if (param.includes(" ")) {
             param = param.replace(/\s/g, '%20');
         }
-        url += `${cuisineCall}${param}`;
+        url += `&cuisineType=${param}`;
     })
     url += `&q=${queryState.keyWords}`;
     //line below -> API doesn't accept empty query call without any additional parameters

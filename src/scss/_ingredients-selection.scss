@@ -9,7 +9,6 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    // overflow: hidden;
     @media (max-width: 800px) {
         flex-direction: column;
         gap: 10px;
@@ -61,28 +60,6 @@
             &:hover {
                 background-color: lighten($color-red, 20%);
             }
-        }
-    }
-}
-.ingredients-selection__nav-buttons {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: calc(50% - 300px);
-    @media (max-width: 800px) {
-        gap: calc(50% - 135px);
-    }
-    button {
-        @include glass;
-        box-shadow: 10px 10px 35px 0px #000000;
-        border: none;
-        border-radius: 15px;
-        padding: 15px 10px;
-        cursor: pointer;
-        transition-duration: 0.3s;
-        &:hover {
-            background-color: $color-green;
         }
     }
 }

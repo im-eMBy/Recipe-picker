@@ -8,19 +8,17 @@ export const restartState = () => {
 
 //for appReducer
 
-export const setCurrentPage = (page) => {
+export const prevPage = () => {
     return (dispatch) => {
         dispatch({
-            type: "setCurrentPage",
-            page: page
+            type: "prevPage",
         })
     }
 }
-export const setCurrentSubpage = (page) => {
+export const nextPage = () => {
     return (dispatch) => {
         dispatch({
-            type: "setCurrentSubpage",
-            page: page
+            type: "nextPage",
         })
     }
 }
@@ -81,67 +79,19 @@ export const setCuisineType = (cuisinesArray) => {
 
 //allergies
 
-export const setAllergyPeanuts = (isAllergy) => {
+export const addAllergy = (allergy) => {
     return (dispatch) => {
         dispatch({
-            type: "setAllergyPeanuts",
-            isAllergy: isAllergy
+            type: "addAllergy",
+            allergy: allergy
         })
     }
 }
-export const setAllergyTreenuts = (isAllergy) => {
+export const removeAllergy = (allergy) => {
     return (dispatch) => {
         dispatch({
-            type: "setAllergyTreenuts",
-            isAllergy: isAllergy
-        })
-    }
-}
-export const setAllergyWheat = (isAllergy) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setAllergyWheat",
-            isAllergy: isAllergy
-        })
-    }
-}
-export const setAllergySoy = (isAllergy) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setAllergySoy",
-            isAllergy: isAllergy
-        })
-    }
-}
-export const setAllergyDairy = (isAllergy) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setAllergyDairy",
-            isAllergy: isAllergy
-        })
-    }
-}
-export const setAllergyEggs = (isAllergy) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setAllergyEggs",
-            isAllergy: isAllergy
-        })
-    }
-}
-export const setAllergyFish = (isAllergy) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setAllergyFish",
-            isAllergy: isAllergy
-        })
-    }
-}
-export const setAllergyCrustaceans = (isAllergy) => {
-    return (dispatch) => {
-        dispatch({
-            type: "setAllergyCrustaceans",
-            isAllergy: isAllergy
+            type: "removeAllergy",
+            allergy: allergy
         })
     }
 }
